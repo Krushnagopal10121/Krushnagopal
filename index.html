@@ -174,7 +174,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -192,38 +192,21 @@
 
 #cr7-video-container-2nd {
   position: relative;
-  width: 80vw;
-  max-width: 400px;
-  height: calc(80vw * 16 / 9);
-  border-radius: 12px;
+  width: 100%;
+  height: 100vh; /* Force full height */
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  margin: 0 auto;
+  margin: 0;
 }
 
 #cr7-video-2nd {
   width: 100%;
-  height: 100%;
-  object-fit: contain;
+  height: 100vh;
+  object-fit: cover; /* ← CRITICAL: Fills screen without distortion */
+  object-position: center; /* Centers the most important part */
   display: block;
 }
 
-#video-overlay-2nd .video-title {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  color: white;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.8rem;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 8px 16px;
-  border-radius: 6px;
-  backdrop-filter: blur(10px);
-  pointer-events: none;
-}
-
-    /* ===== MAIN SITE — MUSEUM-LIKE LAYOUT ===== */
+   /* ===== MAIN SITE — MUSEUM-LIKE LAYOUT ===== */
     #main-site {
       display: none;
       padding: 60px 5%;
@@ -764,6 +747,82 @@
       0% { transform: translate(0, 0); opacity: 0.7; }
       100% { transform: translate(-10px, -100px); opacity: 0; }
     }
+    /* ===== LUXURY BACKGROUND ATMOSPHERE — CINEMATIC LIGHTING ===== */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 30% 20%, rgba(249, 224, 118, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 70% 80%, rgba(212, 175, 55, 0.06) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.02) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  animation: ambientGlow 8s ease-in-out infinite alternate;
+}
+
+@keyframes ambientGlow {
+  0% {
+    background:
+      radial-gradient(circle at 30% 20%, rgba(249, 224, 118, 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 70% 80%, rgba(212, 175, 55, 0.06) 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.02) 0%, transparent 70%);
+  }
+  100% {
+    background:
+      radial-gradient(circle at 32% 18%, rgba(249, 224, 118, 0.12) 0%, transparent 40%),
+      radial-gradient(circle at 68% 82%, rgba(212, 175, 55, 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+  }
+}
+
+/* ===== GOLDEN PARTICLE FLOAT (SUBTLE, ELEGANT) ===== */
+.golden-particle {
+  position: fixed;
+  width: 2px;
+  height: 2px;
+  background: #f9e076;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.6;
+  animation: floatGold 6s linear forwards;
+}
+
+@keyframes floatGold {
+  0% {
+    transform: translate(0, 0) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(var(--x), var(--y)) scale(1);
+    opacity: 0;
+  }
+}
+
+/* ===== LIGHT FLARES (GLOWING ORBS) ===== */
+.light-flare {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(249, 224, 118, 0.3) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  animation: flarePulse 12s ease-in-out infinite;
+}
+
+@keyframes flarePulse {
+  0%, 100% { opacity: 0; transform: scale(0.8); }
+  50% { opacity: 0.15; transform: scale(1.2); }
+}
   </style>
 </head>
 <body>
@@ -1126,6 +1185,50 @@
     document.body.appendChild(particle);
     setTimeout(() => particle.remove(), 2000);
   }, 800);
+  // ===== DYNAMIC GOLDEN PARTICLES + LIGHT FLARES =====
+function createGoldenParticle() {
+  const particle = document.createElement('div');
+  particle.classList.add('golden-particle');
+
+  // Random position around screen (avoid center where text is)
+  const x = (Math.random() - 0.5) * window.innerWidth * 1.5;
+  const y = -(Math.random() * window.innerHeight * 1.2);
+
+  particle.style.setProperty('--x', `${x}px`);
+  particle.style.setProperty('--y', `${y}px`);
+  particle.style.left = `${Math.random() * 100}%`;
+  particle.style.top = `${Math.random() * 100}%`;
+
+  document.body.appendChild(particle);
+
+  setTimeout(() => particle.remove(), 6000);
+}
+
+function createLightFlare() {
+  const flare = document.createElement('div');
+  flare.classList.add('light-flare');
+
+  // Random position
+  flare.style.left = `${Math.random() * 100}%`;
+  flare.style.top = `${Math.random() * 100}%`;
+  flare.style.animationDelay = `${Math.random() * 5}s`;
+
+  document.body.appendChild(flare);
+
+  setTimeout(() => flare.remove(), 12000);
+}
+
+// Spawn particles every 1.5s, flares every 4s
+setInterval(createGoldenParticle, 1500);
+setInterval(createLightFlare, 4000);
+
+// Initialize immediately on load
+window.addEventListener('load', () => {
+  for (let i = 0; i < 5; i++) {
+    createGoldenParticle();
+    if (i % 2 === 0) createLightFlare();
+  }
+});
 
   // Add keyframe animation for particles
   const style = document.createElement('style');
