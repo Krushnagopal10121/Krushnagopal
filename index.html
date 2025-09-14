@@ -38,50 +38,57 @@
       z-index: 1;
     }
 
-    /* ===== SIUUU START SCREEN — LUXURY EMBROIDERY EFFECT ===== */
-    #siuu-screen {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      cursor: pointer;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-    }
+/* ===== SIUUU START SCREEN — LUXURY EMBROIDERY EFFECT (MOBILE-FIXED) ===== */
+#siuu-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
 
-    #siuu-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 12rem;
-      font-weight: 700;
-      color: transparent;
-      background: linear-gradient(135deg, #f9e076, #d4af37, #f9e076);
-      -webkit-background-clip: text;
-      background-clip: text;
-      letter-spacing: -0.05em;
-      text-shadow: 0 0 40px rgba(212, 175, 55, 0.4);
-      animation: shimmer 4s ease-in-out infinite alternate;
-      position: relative;
-      padding: 0.5em 1em;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-radius: 16px;
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      box-shadow:
-        0 0 60px rgba(212, 175, 55, 0.2),
-        0 0 100px rgba(212, 175, 55, 0.1);
-      cursor: pointer;
-      transform-origin: center;
-      transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
+#siuu-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(4rem, 20vw, 12rem); /* 👈 CRITICAL: Responsive magic */
+  font-weight: 700;
+  color: transparent;
+  background: linear-gradient(135deg, #f9e076, #d4af37, #f9e076);
+  -webkit-background-clip: text;
+  background-clip: text;
+  letter-spacing: -0.05em;
+  text-shadow: 0 0 40px rgba(212, 175, 55, 0.4);
+  animation: shimmer 4s ease-in-out infinite alternate;
+  position: relative;
+  padding: 0.5em 1em;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow:
+    0 0 60px rgba(212, 175, 55, 0.2),
+    0 0 100px rgba(212, 175, 55, 0.1);
+  cursor: pointer;
+  transform-origin: center;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  white-space: nowrap; /* Prevent line break */
+  text-align: center;
+  /* Ensure perfect centering regardless of size */
+  transform: translateX(-50%) translateY(-50%);
+  left: 50%;
+  top: 50%;
+  position: absolute;
+}
 
-    #siuu-text:hover {
-      transform: scale(1.03);
-    }
+#siuu-text:hover {
+  transform: translateX(-50%) translateY(-50%) scale(1.03);
+}
 
     @keyframes shimmer {
       0% { opacity: 0.8; }
@@ -161,6 +168,60 @@
       backdrop-filter: blur(10px);
       pointer-events: none;
     }
+    /* ===== SECOND VIDEO OVERLAY ===== */
+#video-overlay-2nd {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 10001; /* Higher than first overlay */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#video-overlay-2nd.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+#cr7-video-container-2nd {
+  position: relative;
+  width: 80vw;
+  max-width: 400px;
+  height: calc(80vw * 16 / 9);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  margin: 0 auto;
+}
+
+#cr7-video-2nd {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+#video-overlay-2nd .video-title {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 8px 16px;
+  border-radius: 6px;
+  backdrop-filter: blur(10px);
+  pointer-events: none;
+}
 
     /* ===== MAIN SITE — MUSEUM-LIKE LAYOUT ===== */
     #main-site {
@@ -353,21 +414,32 @@
     }
 
     /* ===== TOP GOALS === */
-    .goal-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-    }
+    /* ===== GOAL GALLERY — FIXED ASPECT RATIO & PROPER VIDEO FIT ===== */
+.goal-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
 
-    .goal-item {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-      aspect-ratio: 16 / 9;
-      border: 1px solid rgba(212, 175, 55, 0.1);
-    }
+.goal-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  /* Set fixed 16:9 aspect ratio */
+  aspect-ratio: 16 / 9;
+}
+
+.goal-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ← CRITICAL: Crops evenly to fill container */
+  object-position: center; /* Centers the video within the crop */
+  display: block;
+  background: #000; /* Fallback black if video fails to load */
+}
 
     .goal-item iframe {
       width: 100%;
@@ -386,7 +458,43 @@
       font-size: 1.4rem;
       font-family: 'Cormorant Garamond', serif;
     }
+/* ===== MUTE BUTTON STYLING ===== */
+.mute-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #f9e076;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
 
+.mute-btn:hover {
+  background: rgba(212, 175, 55, 0.2);
+  transform: scale(1.1);
+}
+
+.mute-btn svg {
+  width: 20px;
+  height: 20px;
+  transition: fill 0.3s ease;
+}
+
+/* Optional: Add subtle glow on hover */
+.mute-btn:hover svg {
+  filter: drop-shadow(0 0 8px rgba(249, 224, 118, 0.5));
+}
     /* ===== LEGACY STATS === */
     .stats-grid {
       display: grid;
@@ -674,6 +782,15 @@
       </video>
     </div>
   </div>
+  <!-- === SECOND VIDEO OVERLAY — LEGACY MOMENT === -->
+<div id="video-overlay-2nd">
+  <div id="cr7-video-container-2nd">
+    <video id="cr7-video-2nd" controls>
+      <source src="overlay-2nd.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
 
   <!-- === MAIN WEBSITE === -->
   <div id="main-site">
@@ -685,7 +802,7 @@
     <!-- === REAL-TIME GOAL COUNTER === -->
     <div id="goal-counter">
       <div>TOTAL CAREER GOALS</div>
-      <div id="goal-number">940+</div>
+      <div id="goal-number">943</div>
     </div>
 
     <!-- === CLUBS JOURNEY WITH TABS === -->
@@ -863,22 +980,77 @@
 </div>
 
  <!-- === TOP GOALS === -->
-    <section class="section">
-      <h2 class="section-title">Iconic Goals — Where Legends Are Made</h2>
-      <div class="goal-gallery">
-        <div class="goal-item">
-          <iframe src="bicycle-kick.mp4" type="video/mp4"> allowfullscreen></iframe>
-        </div>
-        <div class="goal-item">
-          <iframe src="free-kick.mp4" type="video/mp4"> allowfullscreen></iframe>
-        </div>
-        <div class="goal-item">
-          <iframe src="six-pack.mp4" type="video/mp4"> allowfullscreen></iframe>
-      </div>
-      <div class="goal-item">
-        <iframe src="juve-naldo.mp4" type="video/mp4"> allowfullscreen</iframe>
-      </div>
-    </section>
+<section class="section">
+  <h2 class="section-title">Iconic Goals — Where Legends Are Made</h2>
+  <div class="goal-gallery">
+    <!-- FIRST VIDEO: UNMUTED BY DEFAULT -->
+    <div class="goal-item">
+      <video class="goal-video" autoplay loop playsinline poster="https://assets-cms.thescore.com/uploads/image/file/401278/w640xh480_GettyImages-941534222.jpg?ts=1587528222">
+        <source src="bicycle-kick.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <button class="mute-btn" aria-label="Mute audio">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11 5L6 9H11V15H6L11 19V5Z" fill="#f9e076"/>
+          <path d="M15.5 12C15.5 13.933 14.75 15.738 13.45 17.05L15.5 19.1V12Z" fill="#f9e076"/>
+          <path d="M19.8 16.2C20.6 15.1 21 13.7 21 12C21 10.3 20.6 8.9 19.8 7.8L17.5 10.1C18.1 11 18.5 12 18.5 13C18.5 14 18.1 15 17.5 15.9L19.8 16.2Z" fill="#f9e076"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- OTHER VIDEOS: MUTED BY DEFAULT -->
+    <div class="goal-item">
+      <video class="goal-video" muted preload="metadata" playsinline>
+        <source src="free-kick.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <button class="mute-btn" aria-label="Unmute audio">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11 5L6 9H11V15H6L11 19V5Z" fill="#f9e076"/>
+          <path d="M15.5 12C15.5 13.933 14.75 15.738 13.45 17.05L15.5 19.1V12Z" fill="#f9e076"/>
+          <path d="M19.8 16.2C20.6 15.1 21 13.7 21 12C21 10.3 20.6 8.9 19.8 7.8L17.5 10.1C18.1 11 18.5 12 18.5 13C18.5 14 18.1 15 17.5 15.9L19.8 16.2Z" fill="#f9e076"/>
+          <path d="M23 12C23 13.6569 22.3178 15.2072 21.1623 16.3623C20.0068 17.5174 18.4565 18.2 16.8 18.2C15.1435 18.2 13.5932 17.5174 12.4377 16.3623C11.2822 15.2072 10.6 13.6569 10.6 12C10.6 10.3431 11.2822 8.79277 12.4377 7.63725C13.5932 6.48174 15.1435 5.8 16.8 5.8C18.4565 5.8 20.0068 6.48174 21.1623 7.63725C22.3178 8.79277 23 10.3431 23 12Z" fill="#f9e076"/>
+          <path d="M17.5 10.1L15.5 12L17.5 13.9" stroke="#f9e076" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15.5 12L17.5 10.1" stroke="#f9e076" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="goal-item">
+      <video class="goal-video" muted preload="metadata" playsinline>
+        <source src="six-pack.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <button class="mute-btn" aria-label="Unmute audio">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11 5L6 9H11V15H6L11 19V5Z" fill="#f9e076"/>
+          <path d="M15.5 12C15.5 13.933 14.75 15.738 13.45 17.05L15.5 19.1V12Z" fill="#f9e076"/>
+          <path d="M19.8 16.2C20.6 15.1 21 13.7 21 12C21 10.3 20.6 8.9 19.8 7.8L17.5 10.1C18.1 11 18.5 12 18.5 13C18.5 14 18.1 15 17.5 15.9L19.8 16.2Z" fill="#f9e076"/>
+          <path d="M23 12C23 13.6569 22.3178 15.2072 21.1623 16.3623C20.0068 17.5174 18.4565 18.2 16.8 18.2C15.1435 18.2 13.5932 17.5174 12.4377 16.3623C11.2822 15.2072 10.6 13.6569 10.6 12C10.6 10.3431 11.2822 8.79277 12.4377 7.63725C13.5932 6.48174 15.1435 5.8 16.8 5.8C18.4565 5.8 20.0068 6.48174 21.1623 7.63725C22.3178 8.79277 23 10.3431 23 12Z" fill="#f9e076"/>
+          <path d="M17.5 10.1L15.5 12L17.5 13.9" stroke="#f9e076" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15.5 12L17.5 10.1" stroke="#f9e076" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="goal-item">
+      <video class="goal-video" muted preload="metadata" playsinline>
+        <source src="juve-naldo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <button class="mute-btn" aria-label="Unmute audio">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11 5L6 9H11V15H6L11 19V5Z" fill="#f9e076"/>
+          <path d="M15.5 12C15.5 13.933 14.75 15.738 13.45 17.05L15.5 19.1V12Z" fill="#f9e076"/>
+          <path d="M19.8 16.2C20.6 15.1 21 13.7 21 12C21 10.3 20.6 8.9 19.8 7.8L17.5 10.1C18.1 11 18.5 12 18.5 13C18.5 14 18.1 15 17.5 15.9L19.8 16.2Z" fill="#f9e076"/>
+          <path d="M23 12C23 13.6569 22.3178 15.2072 21.1623 16.3623C20.0068 17.5174 18.4565 18.2 16.8 18.2C15.1435 18.2 13.5932 17.5174 12.4377 16.3623C11.2822 15.2072 10.6 13.6569 10.6 12C10.6 10.3431 11.2822 8.79277 12.4377 7.63725C13.5932 6.48174 15.1435 5.8 16.8 5.8C18.4565 5.8 20.0068 6.48174 21.1623 7.63725C22.3178 8.79277 23 10.3431 23 12Z" fill="#f9e076"/>
+          <path d="M17.5 10.1L15.5 12L17.5 13.9" stroke="#f9e076" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M15.5 12L17.5 10.1" stroke="#f9e076" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
 
     <!-- === LEGACY STATS === -->
     <section class="section">
@@ -893,7 +1065,7 @@
           <div class="stat-label">Champions League Goals</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number">65+</div>
+          <div class="stat-number">66</div>
           <div class="stat-label">Hat-Tricks</div>
         </div>
         <div class="stat-card">
@@ -925,7 +1097,7 @@
   // Real-Time Goal Counter Animation
   const goalNumber = document.getElementById('goal-number');
   let current = 940; // Start at 940
-  const target = 943; // Count up to 943
+  const target =         943; // Count up to 943
 
   function updateGoal() {
     if (current < target) {
@@ -1081,7 +1253,88 @@
   document.getElementById('restart-quiz').addEventListener('click', () => {
     resetQuiz();
   });
+  // === VIDEO CONTROL LOGIC WITH MUTE/UNMUTE ===
+const goalVideos = document.querySelectorAll('.goal-video');
+const muteButtons = document.querySelectorAll('.mute-btn');
 
+let activeVideo = null;
+
+// Function to update mute button icon based on video state
+function updateMuteButton(video, button) {
+  if (video.muted || video.volume === 0) {
+    // Show muted icon (speaker with slash)
+    button.innerHTML = `
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11 5L6 9H11V15H6L11 19V5Z" fill="#f9e076"/>
+        <path d="M15.5 12C15.5 13.933 14.75 15.738 13.45 17.05L15.5 19.1V12Z" fill="#f9e076"/>
+        <path d="M19.8 16.2C20.6 15.1 21 13.7 21 12C21 10.3 20.6 8.9 19.8 7.8L17.5 10.1C18.1 11 18.5 12 18.5 13C18.5 14 18.1 15 17.5 15.9L19.8 16.2Z" fill="#f9e076"/>
+        <path d="M23 12C23 13.6569 22.3178 15.2072 21.1623 16.3623C20.0068 17.5174 18.4565 18.2 16.8 18.2C15.1435 18.2 13.5932 17.5174 12.4377 16.3623C11.2822 15.2072 10.6 13.6569 10.6 12C10.6 10.3431 11.2822 8.79277 12.4377 7.63725C13.5932 6.48174 15.1435 5.8 16.8 5.8C18.4565 5.8 20.0068 6.48174 21.1623 7.63725C22.3178 8.79277 23 10.3431 23 12Z" fill="#f9e076"/>
+        <path d="M17.5 10.1L15.5 12L17.5 13.9" stroke="#f9e076" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M15.5 12L17.5 10.1" stroke="#f9e076" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    `;
+    button.setAttribute('aria-label', 'Unmute audio');
+  } else {
+    // Show unmuted icon (speaker without slash)
+    button.innerHTML = `
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11 5L6 9H11V15H6L11 19V5Z" fill="#f9e076"/>
+        <path d="M15.5 12C15.5 13.933 14.75 15.738 13.45 17.05L15.5 19.1V12Z" fill="#f9e076"/>
+        <path d="M19.8 16.2C20.6 15.1 21 13.7 21 12C21 10.3 20.6 8.9 19.8 7.8L17.5 10.1C18.1 11 18.5 12 18.5 13C18.5 14 18.1 15 17.5 15.9L19.8 16.2Z" fill="#f9e076"/>
+      </svg>
+    `;
+    button.setAttribute('aria-label', 'Mute audio');
+  }
+}
+
+// Handle click on any mute button
+muteButtons.forEach((button, index) => {
+  const video = goalVideos[index];
+
+  button.addEventListener('click', () => {
+    if (video.muted) {
+      video.muted = false;
+      video.play().catch(e => console.warn("Autoplay blocked — user interaction required."));
+    } else {
+      video.muted = true;
+    }
+    updateMuteButton(video, button);
+  });
+});
+
+// Handle video click (play/pause toggle)
+goalVideos.forEach((video, index) => {
+  video.addEventListener('click', () => {
+    if (video.paused) {
+      // Pause all other videos
+      goalVideos.forEach(v => {
+        if (v !== video) {
+          v.pause();
+          v.currentTime = 0;
+        }
+      });
+
+      // Play clicked video
+      video.play().catch(e => {
+        console.warn("Autoplay blocked — user interaction required.");
+      });
+
+      // Set as active
+      activeVideo = video;
+    } else {
+      video.pause();
+      activeVideo = null;
+    }
+
+    // Update mute button UI for this video
+    updateMuteButton(video, muteButtons[index]);
+  });
+});
+
+// Initialize mute buttons based on initial state
+goalVideos.forEach((video, index) => {
+  updateMuteButton(video, muteButtons[index]);
+});
   // SIUUU Click Handler
   document.getElementById('siuu-screen').addEventListener('click', function() {
     const siuuScreen = document.getElementById('siuu-screen');
@@ -1100,16 +1353,33 @@
       console.warn("Audio autoplay blocked — user interaction required.");
     });
 
-    // After video ends, fade in main site
-    video.addEventListener('ended', () => {
-      setTimeout(() => {
-        videoOverlay.classList.remove('active');
-        mainSite.style.display = 'block';
+    // When first video ends, show second overlay
+video.addEventListener('ended', () => {
+  setTimeout(() => {
+    videoOverlay.classList.remove('active');
+
+    // Show second overlay after 1.5s delay
+    setTimeout(() => {
+      const videoOverlay2nd = document.getElementById('video-overlay-2nd');
+      const video2nd = document.getElementById('cr7-video-2nd');
+      videoOverlay2nd.classList.add('active');
+      
+      // Play second video
+      video2nd.play().catch(e => console.warn("Autoplay blocked — user interaction required."));
+
+      // When second video ends, show main site
+      video2nd.addEventListener('ended', () => {
         setTimeout(() => {
-          mainSite.classList.add('fade-in');
-        }, 100);
-      }, 1000); // Wait 1 second after video ends for emotional pause
-    });
+          videoOverlay2nd.classList.remove('active');
+          mainSite.style.display = 'block';
+          setTimeout(() => {
+            mainSite.classList.add('fade-in');
+          }, 100);
+        }, 1000); // Pause before showing main site
+      });
+    }, 1500); // 1.5s gap between videos
+  }, 1000); // Wait 1s after first video ends before starting transition
+});
 
     // Fallback if video hangs
     setTimeout(() => {
