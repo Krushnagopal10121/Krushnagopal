@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CR7: The Legacy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ===== BASE STYLES — LUXURY MINIMALISM ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #e0e0e0;
+      overflow-x: hidden;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: url('https://i.pinimg.com/1200x/35/cc/cf/35cccf86ff4648d7c96d5e0acbc7b68b.jpg') center/cover fixed no-repeat;
+      background-attachment: fixed;
+      filter: brightness(0.85);
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(212, 175, 55, 0.05) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* ===== SIUUU START SCREEN — LUXURY EMBROIDERY EFFECT ===== */
+    #siuu-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    #siuu-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 12rem;
+      font-weight: 700;
+      color: transparent;
+      background: linear-gradient(135deg, #f9e076, #d4af37, #f9e076);
+      -webkit-background-clip: text;
+      background-clip: text;
+      letter-spacing: -0.05em;
+      text-shadow: 0 0 40px rgba(212, 175, 55, 0.4);
+      animation: shimmer 4s ease-in-out infinite alternate;
+      position: relative;
+      padding: 0.5em 1em;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 16px;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      box-shadow:
+        0 0 60px rgba(212, 175, 55, 0.2),
+        0 0 100px rgba(212, 175, 55, 0.1);
+      cursor: pointer;
+      transform-origin: center;
+      transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    #siuu-text:hover {
+      transform: scale(1.03);
+    }
+
+    @keyframes shimmer {
+      0% { opacity: 0.8; }
+      50% { opacity: 1; }
+      100% { opacity: 0.8; }
+    }
+
+    #siuu-text::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      border-radius: 8px;
+      pointer-events: none;
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
+      50% { box-shadow: 0 0 40px rgba(212, 175, 55, 0.7); }
+    }
+
+    /* ===== VIDEO OVERLAY — CINEMATIC GALLERY STYLE ===== */
+    #video-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 10000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    #video-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    #cr7-video-container {
+      position: relative;
+      width: 80vw;
+      max-width: 400px;
+      height: calc(80vw * 16 / 9);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      margin: 0 auto;
+    }
+
+    #cr7-video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .video-title {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      color: white;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 8px 16px;
+      border-radius: 6px;
+      backdrop-filter: blur(10px);
+      pointer-events: none;
+    }
+
+    /* ===== MAIN SITE — MUSEUM-LIKE LAYOUT ===== */
+    #main-site {
+      display: none;
+      padding: 60px 5%;
+      flex: 1;
+      background: linear-gradient(to bottom, rgba(10, 10, 10, 0.8), rgba(5, 5, 5, 0.95));
+      position: relative;
+      z-index: 2;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(212, 175, 55, 0.1);
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      font-weight: 700;
+      color: #f9e076;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      text-shadow: 0 0 30px rgba(249, 224, 118, 0.2);
+    }
+
+    .hero p {
+      font-size: 1.8rem;
+      color: #ccc;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ===== REAL-TIME GOAL COUNTER (INSIDE MAIN SITE) ===== */
+    #goal-counter {
+      position: relative;
+      top: -40px;
+      margin: 0 auto;
+      width: fit-content;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      color: #f9e076;
+      text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+      z-index: 10;
+      padding: 10px 20px;
+      background: rgba(10, 10, 10, 0.7);
+      border-radius: 12px;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      box-shadow: 0 8px 30px rgba(212, 175, 55, 0.1);
+    }
+
+    #goal-counter div:first-child {
+      font-size: 0.8em;
+      opacity: 0.8;
+    }
+
+    #goal-number {
+      font-weight: 700;
+    }
+
+    /* ===== CLUB TABS SECTION ===== */
+    .section {
+      margin-bottom: 100px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      color: #d4af37;
+      margin-bottom: 40px;
+      text-align: center;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #d4af37, transparent);
+      margin: 20px auto;
+    }
+
+    .club-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 40px;
+      padding: 0 20px;
+    }
+
+    .club-tab {
+      background: rgba(20, 20, 20, 0.5);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      color: #ccc;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      padding: 12px 24px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .club-tab:hover {
+      background: rgba(212, 175, 55, 0.1);
+      color: #f9e076;
+      transform: translateY(-3px);
+    }
+
+    .club-tab.active {
+      background: rgba(212, 175, 55, 0.2);
+      color: #f9e076;
+      border-color: #d4af37;
+      box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+    }
+
+    .club-detail-panel {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 30px;
+      background: rgba(10, 10, 10, 0.6);
+      border-radius: 16px;
+      border: 1px solid rgba(212, 175, 55, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    .club-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      background: rgba(20, 20, 20, 0.4);
+      border-radius: 12px;
+      border: 1px solid rgba(212, 175, 55, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .stat:hover {
+      transform: translateY(-5px);
+      background: rgba(212, 175, 55, 0.08);
+    }
+
+    .label {
+      font-size: 1.2rem;
+      color: #bbb;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      color: #f9e076;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .club-panel {
+      display: none;
+    }
+
+    .club-panel.active {
+      display: block;
+    }
+
+    /* ===== TOP GOALS === */
+    .goal-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .goal-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      aspect-ratio: 16 / 9;
+      border: 1px solid rgba(212, 175, 55, 0.1);
+    }
+
+    .goal-item iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .goal-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 16px;
+      font-size: 1.4rem;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    /* ===== LEGACY STATS === */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .stat-card {
+      text-align: center;
+      background: rgba(20, 20, 20, 0.6);
+      border-radius: 12px;
+      padding: 30px;
+      border: 1px solid rgba(212, 175, 55, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 15px 50px rgba(212, 175, 55, 0.2);
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      color: #f9e076;
+      margin-bottom: 10px;
+    }
+
+    .stat-label {
+      font-size: 1.4rem;
+      color: #ccc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 50px 0;
+      font-size: 1.3rem;
+      color: #777;
+      border-top: 1px solid rgba(212, 175, 55, 0.1);
+    }
+
+    footer a {
+      color: #d4af37;
+      text-decoration: none;
+      border-bottom: 1px dotted #d4af37;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    .fade-in {
+      animation: fadeIn 1.2s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== ULTIMATE MOBILE OPTIMIZATIONS ===== */
+    @media (max-width: 768px) {
+      /* Make video container taller on phones (better portrait view) */
+      #cr7-video-container {
+        width: 95vw;
+        height: calc(95vw * 16 / 9);
+        margin: 0 auto;
+      }
+
+      /* Reduce font sizes slightly for tighter reading */
+      .hero h1 { font-size: 3rem !important; }
+      .hero p { font-size: 1.5rem !important; }
+      .section-title { font-size: 2.5rem !important; }
+      .club-tab { font-size: 1.3rem !important; padding: 10px 16px !important; }
+      .stat-number { font-size: 2.3rem !important; }
+      .value { font-size: 1.6rem !important; }
+      .label { font-size: 1.1rem !important; }
+
+      /* Ensure goal counter doesn't overflow */
+      #goal-counter {
+        font-size: 1.8rem !important;
+        padding: 8px 16px !important;
+        top: -30px !important;
+      }
+
+      /* Improve club panel spacing */
+      .club-detail-panel {
+        padding: 20px !important;
+        margin: 0 10px !important;
+      }
+
+      /* Make gallery items stack vertically on small screens */
+      .goal-gallery {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+
+      .goal-item iframe {
+        height: 200px !important;
+      }
+
+      /* Prevent text overflow in legacy descriptions */
+      .stat span.value,
+      .stat span.label {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+      }
+
+      /* Add subtle tap feedback for buttons */
+      .club-tab {
+        transition: transform 0.2s ease;
+      }
+      .club-tab:active {
+        transform: scale(0.98);
+      }
+
+      /* Fix footer text wrapping */
+      footer {
+        font-size: 1.2rem !important;
+        line-height: 1.6 !important;
+      }
+    }
+
+    /* === EXTRA: Touch-Friendly Tap Targets === */
+    button, .club-tab {
+      min-height: 48px;
+      min-width: 48px;
+    }
+
+    /* ===== QUIZ STYLING ===== */
+    .quiz-container {
+      padding: 40px;
+      background: rgba(10, 10, 10, 0.6);
+      border-radius: 16px;
+      border: 1px solid rgba(212, 175, 55, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .quiz-question {
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .quiz-option {
+      display: block;
+      width: 100%;
+      padding: 18px;
+      margin-bottom: 12px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.6rem;
+      color: #eee;
+      background: rgba(30, 30, 30, 0.7);
+      border: 1px solid rgba(212, 175, 55, 0.1);
+      border-radius: 10px;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .quiz-option:hover {
+      background: rgba(212, 175, 55, 0.1);
+      transform: translateX(8px);
+      color: #f9e076;
+      border-color: #d4af37;
+    }
+
+    .quiz-option.correct {
+      background: rgba(46, 204, 113, 0.2);
+      border-color: #2ecc71;
+      color: #2ecc71;
+      animation: pulseGreen 0.6s ease-out;
+    }
+
+    .quiz-option.incorrect {
+      background: rgba(231, 76, 60, 0.2);
+      border-color: #e74c3c;
+      color: #e74c3c;
+      animation: pulseRed 0.6s ease-out;
+    }
+
+    #submit-quiz {
+      display: block;
+      margin: 40px auto 0;
+      padding: 16px 40px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      color: #f9e076;
+      background: rgba(212, 175, 55, 0.2);
+      border: 1px solid #d4af37;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+    }
+
+    #submit-quiz:hover {
+      background: rgba(212, 175, 55, 0.3);
+      box-shadow: 0 12px 35px rgba(212, 175, 55, 0.3);
+    }
+
+    #quiz-result {
+      display: none;
+      text-align: center;
+      margin-top: 50px;
+      padding: 40px;
+      border-radius: 16px;
+      background: rgba(10, 10, 10, 0.7);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #score-display {
+      font-size: 4rem;
+      color: #d4af37;
+      margin: 20px 0;
+    }
+
+    #rank-message {
+      font-size: 1.8rem;
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    #restart-quiz {
+      margin-top: 30px;
+      padding: 12px 30px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      color: #f9e076;
+      background: rgba(212, 175, 55, 0.2);
+      border: 1px solid #d4af37;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #restart-quiz:hover {
+      background: rgba(212, 175, 55, 0.3);
+      box-shadow: 0 12px 35px rgba(212, 175, 55, 0.3);
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulseGreen {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes pulseRed {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+      100% { transform: scale(1); }
+    }
+
+    /* ===== PARTICLE ANIMATION ===== */
+    @keyframes floatUp {
+      0% { transform: translate(0, 0); opacity: 0.7; }
+      100% { transform: translate(-10px, -100px); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- === SIUUU LAUNCH SCREEN === -->
+  <div id="siuu-screen">
+    <div id="siuu-text">SIUUU</div>
+  </div>
+
+  <!-- === VIDEO OVERLAY === -->
+  <div id="video-overlay">
+    <div id="cr7-video-container">
+      <video id="cr7-video" controls>
+        <source src="cr7-siuuu.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+
+  <!-- === MAIN WEBSITE === -->
+  <div id="main-site">
+    <section class="hero">
+      <h1>Cristiano Ronaldo</h1>
+      <p>The most complete footballer in history. A relentless force of nature. A man who turned discipline into art, and talent into legend.</p>
+    </section>
+
+    <!-- === REAL-TIME GOAL COUNTER === -->
+    <div id="goal-counter">
+      <div>TOTAL CAREER GOALS</div>
+      <div id="goal-number">940+</div>
+    </div>
+
+    <!-- === CLUBS JOURNEY WITH TABS === -->
+    <section class="section">
+      <h2 class="section-title">Clubs: The Path of Greatness</h2>
+
+      <!-- Club Tabs Navigation -->
+      <div class="club-tabs">
+        <button class="club-tab" data-club="sporting">Sporting CP</button>
+        <button class="club-tab" data-club="manutd">Manchester United</button>
+        <button class="club-tab" data-club="realmadrid">Real Madrid</button>
+        <button class="club-tab" data-club="juventus">Juventus</button>
+        <button class="club-tab" data-club="alnassr">Al Nassr</button>
+        <button class="club-tab" data-club="portugal">Portugal</button>
+        <button class="club-tab" data-club="quiz">Test Your Knowledge</button>
+      </div>
+
+      <!-- Club Detail Panels -->
+      <div class="club-detail-panel">
+        <!-- Sporting CP -->
+        <div class="club-panel" data-club="sporting" style="display: none;">
+          <div class="club-stats">
+            <div class="stat"><span class="label">Joined</span><span class="value">2002</span></div>
+            <div class="stat"><span class="label">Left</span><span class="value">2003</span></div>
+            <div class="stat"><span class="label">Appearances</span><span class="value">31</span></div>
+            <div class="stat"><span class="label">Goals</span><span class="value">5</span></div>
+            <div class="stat"><span class="label">Assists</span><span class="value">6</span></div>
+            <div class="stat"><span class="label">Trophies</span><span class="value">1</span></div>
+            <div class="stat"><span class="label">Transfer Fee</span><span class="value">€1.2M</span></div>
+            <div class="stat"><span class="label">Legacy</span><span class="value">The spark that ignited a dynasty</span></div>
+          </div>
+        </div>
+
+        <!-- Manchester United -->
+        <div class="club-panel" data-club="manutd" style="display: none;">
+          <div class="club-stats">
+            <div class="stat"><span class="label">Joined</span><span class="value">1st spell-2003, 2nd spell-2021</span></div>
+            <div class="stat"><span class="label">Left</span><span class="value">1st spell-2009, 2nd spell-2023</span></div>
+            <div class="stat"><span class="label">Appearances</span><span class="value">Total-346</span></div>
+            <div class="stat"><span class="label">Goals</span><span class="value">145</span></div>
+            <div class="stat"><span class="label">Assists</span><span class="value">72</span></div>
+            <div class="stat"><span class="label">Trophies</span><span class="value">9</span></div>
+            <div class="stat"><span class="label">Transfer Fee</span><span class="value">£12.24M</span></div>
+            <div class="stat"><span class="label">Legacy</span><span class="value">Became a global icon. Won first Ballon d’Or here.</span></div>
+          </div>
+        </div>
+
+        <!-- Real Madrid -->
+        <div class="club-panel" data-club="realmadrid" style="display: none;">
+          <div class="club-stats">
+            <div class="stat"><span class="label">Joined</span><span class="value">2009</span></div>
+            <div class="stat"><span class="label">Left</span><span class="value">2018</span></div>
+            <div class="stat"><span class="label">Appearances</span><span class="value">438</span></div>
+            <div class="stat"><span class="label">Goals</span><span class="value">450</span></div>
+            <div class="stat"><span class="label">Assists</span><span class="value">131</span></div>
+            <div class="stat"><span class="label">Trophies</span><span class="value">16</span></div>
+            <div class="stat"><span class="label">Transfer Fee</span><span class="value">€94M (World Record)</span></div>
+            <div class="stat"><span class="label">Legacy</span><span class="value">Most goals in UCL history. Four consecutive titles. Legend status achieved.</span></div>
+          </div>
+        </div>
+
+        <!-- Juventus -->
+        <div class="club-panel" data-club="juventus" style="display: none;">
+          <div class="club-stats">
+            <div class="stat"><span class="label">Joined</span><span class="value">2018</span></div>
+            <div class="stat"><span class="label">Left</span><span class="value">2021</span></div>
+            <div class="stat"><span class="label">Appearances</span><span class="value">134</span></div>
+            <div class="stat"><span class="label">Goals</span><span class="value">101</span></div>
+            <div class="stat"><span class="label">Assists</span><span class="value">24</span></div>
+            <div class="stat"><span class="label">Trophies</span><span class="value">5</span></div>
+            <div class="stat"><span class="label">Transfer Fee</span><span class="value">€100M</span></div>
+            <div class="stat"><span class="label">Legacy</span><span class="value">At 33, became the oldest scorer in UCL knockout stage history.</span></div>
+          </div>
+        </div>
+
+        <!-- Al Nassr -->
+        <div class="club-panel" data-club="alnassr" style="display: none;">
+          <div class="club-stats">
+            <div class="stat"><span class="label">Joined</span><span class="value">2023</span></div>
+            <div class="stat"><span class="label">Left</span><span class="value">Present</span></div>
+            <div class="stat"><span class="label">Appearances</span><span class="value">54+</span></div>
+            <div class="stat"><span class="label">Goals</span><span class="value">45+</span></div>
+            <div class="stat"><span class="label">Assists</span><span class="value">18+</span></div>
+            <div class="stat"><span class="label">Trophies</span><span class="value">2</span></div>
+            <div class="stat"><span class="label">Transfer Fee</span><span class="value">€200M/year contract</span></div>
+            <div class="stat"><span class="label">Legacy</span><span class="value">Redefined global football economics. Inspired a generation in Asia.</span></div>
+          </div>
+        </div>
+
+        <!-- Portugal National Team -->
+        <div class="club-panel" data-club="portugal" style="display: none;">
+          <div class="club-stats">
+            <div class="stat"><span class="label">Debut</span><span class="value">August 20, 2003</span></div>
+            <div class="stat"><span class="label">Final Match</span><span class="value">Still Active</span></div>
+            <div class="stat"><span class="label">Appearances</span><span class="value">223</span></div>
+            <div class="stat"><span class="label">Goals</span><span class="value">141</span></div>
+            <div class="stat"><span class="label">Assists</span><span class="value">45</span></div>
+            <div class="stat"><span class="label">Trophies</span><span class="value">3</span></div>
+            <div class="stat"><span class="label">Legacy</span><span class="value">Carried Portugal from underdogs to European champions. All-time top international scorer in men's football history.</span></div>
+          </div>
+        </div>
+
+        <!-- Test Your Knowledge Quiz Panel -->
+<div class="club-panel" data-club="quiz" style="display: none;">
+  <div class="quiz-container">
+    <h3 style="text-align: center; color: #f9e076; font-family: 'Cormorant Garamond', serif; margin-bottom: 30px; font-size: 2.5rem;">Test Your CR7 Knowledge</h3>
+    
+    <div id="quiz-content">
+      <!-- Question 1 -->
+      <div class="quiz-question" data-q="1" style="margin-bottom: 40px; padding: 20px; border-radius: 12px; background: rgba(20, 20, 20, 0.5); border: 1px solid rgba(212, 175, 55, 0.2);">
+        <p style="font-size: 1.8rem; margin-bottom: 20px; color: #fff;">Which club did Cristiano Ronaldo join first professionally?</p>
+        <button class="quiz-option" data-correct="false">A) Real Madrid</button>
+        <button class="quiz-option" data-correct="false">B) Juventus</button>
+        <button class="quiz-option" data-correct="true">C) Sporting CP</button>
+        <button class="quiz-option" data-correct="false">D) Manchester United</button>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="quiz-question" data-q="2" style="margin-bottom: 40px; padding: 20px; border-radius: 12px; background: rgba(20, 20, 20, 0.5); border: 1px solid rgba(212, 175, 55, 0.2);">
+        <p style="font-size: 1.8rem; margin-bottom: 20px; color: #fff;">How many Ballon d’Or awards has Cristiano Ronaldo won?</p>
+        <button class="quiz-option" data-correct="false">A) 4</button>
+        <button class="quiz-option" data-correct="true">B) 5</button>
+        <button class="quiz-option" data-correct="false">C) 6</button>
+        <button class="quiz-option" data-correct="false">D) 7</button>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="quiz-question" data-q="3" style="margin-bottom: 40px; padding: 20px; border-radius: 12px; background: rgba(20, 20, 20, 0.5); border: 1px solid rgba(212, 175, 55, 0.2);">
+        <p style="font-size: 1.8rem; margin-bottom: 20px; color: #fff;">In which year did Cristiano Ronaldo score his 100th international goal?</p>
+        <button class="quiz-option" data-correct="false">A) 2018</button>
+        <button class="quiz-option" data-correct="false">B) 2020</button>
+        <button class="quiz-option" data-correct="true">C) 2021</button>
+        <button class="quiz-option" data-correct="false">D) 2022</button>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="quiz-question" data-q="4" style="margin-bottom: 40px; padding: 20px; border-radius: 12px; background: rgba(20, 20, 20, 0.5); border: 1px solid rgba(212, 175, 55, 0.2);">
+        <p style="font-size: 1.8rem; margin-bottom: 20px; color: #fff;">What is Cristiano Ronaldo’s total career goal tally (as of 2025)?</p>
+        <button class="quiz-option" data-correct="false">A) 850+</button>
+        <button class="quiz-option" data-correct="false">B) 890+</button>
+        <button class="quiz-option" data-correct="true">C) 940+</button>
+        <button class="quiz-option" data-correct="false">D) 980+</button>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="quiz-question" data-q="5" style="margin-bottom: 40px; padding: 20px; border-radius: 12px; background: rgba(20, 20, 20, 0.5); border: 1px solid rgba(212, 175, 55, 0.2);">
+        <p style="font-size: 1.8rem; margin-bottom: 20px; color: #fff;">Which trophy did Portugal win in 2016, with Ronaldo leading the team?</p>
+        <button class="quiz-option" data-correct="false">A) FIFA World Cup</button>
+        <button class="quiz-option" data-correct="false">B) UEFA Nations League</button>
+        <button class="quiz-option" data-correct="true">C) UEFA European Championship</button>
+        <button class="quiz-option" data-correct="false">D) Copa América</button>
+      </div>
+
+      <button id="submit-quiz">Submit Answers</button>
+    </div>
+
+    <div id="quiz-result" style="display: none; text-align: center; margin-top: 50px; padding: 40px; border-radius: 16px; background: rgba(10, 10, 10, 0.7); border: 1px solid rgba(212, 175, 55, 0.3); max-width: 600px; margin-left: auto; margin-right: auto;">
+      <h3 style="color: #f9e076; font-size: 2.8rem; margin-bottom: 20px;">Your CR7 Legacy Rank</h3>
+      <div id="score-display" style="font-size: 4rem; color: #d4af37; margin: 20px 0;">0/5</div>
+      <div id="rank-message" style="font-size: 1.8rem; color: #ccc; line-height: 1.6;"></div>
+      <button id="restart-quiz" style="
+        margin-top: 30px;
+        padding: 12px 30px;
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.5rem;
+        color: #f9e076;
+        background: rgba(212, 175, 55, 0.2);
+        border: 1px solid #d4af37;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      ">Take Quiz Again</button>
+    </div>
+  </div>
+</div>
+
+ <!-- === TOP GOALS === -->
+    <section class="section">
+      <h2 class="section-title">Iconic Goals — Where Legends Are Made</h2>
+      <div class="goal-gallery">
+        <div class="goal-item">
+          <iframe src="bicycle-kick.mp4" type="video/mp4"> allowfullscreen></iframe>
+        </div>
+        <div class="goal-item">
+          <iframe src="free-kick.mp4" type="video/mp4"> allowfullscreen></iframe>
+        </div>
+        <div class="goal-item">
+          <iframe src="six-pack.mp4" type="video/mp4"> allowfullscreen></iframe>
+      </div>
+      <div class="goal-item">
+        <iframe src="juve-naldo.mp4" type="video/mp4"> allowfullscreen</iframe>
+      </div>
+    </section>
+
+    <!-- === LEGACY STATS === -->
+    <section class="section">
+      <h2 class="section-title">The Numbers That Defy Reality</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">943</div>
+          <div class="stat-label">Career Goals</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">140</div>
+          <div class="stat-label">Champions League Goals</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">65+</div>
+          <div class="stat-label">Hat-Tricks</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">5</div>
+          <div class="stat-label">Ballon d’Or Trophies</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">141</div>
+          <div class="stat-label">Goals for National Team</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">22</div>
+          <div class="stat-label">Years at World-Class Level</div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © 2025 The Legacy of Cristiano Ronaldo — A Digital Monument.<br>
+      Created not for clicks, but for reverence.
+      <br><br>
+      “He didn’t play football. He redefined what it meant to be human.”
+    </footer>
+  </div>
+
+  <script>
+  console.log("🏛️ CR7 Legacy Museum — Initializing...");
+
+  // Real-Time Goal Counter Animation
+  const goalNumber = document.getElementById('goal-number');
+  let current = 940; // Start at 940
+  const target = 943; // Count up to 943
+
+  function updateGoal() {
+    if (current < target) {
+      current++;
+      goalNumber.textContent = current + '+';
+      setTimeout(updateGoal, 120);
+    } else {
+      goalNumber.style.textShadow = '0 0 40px rgba(255, 204, 0, 0.8)';
+    }
+  }
+
+  // Floating Particles
+  setInterval(() => {
+    const particle = document.createElement('div');
+    particle.style.position = 'fixed';
+    particle.style.width = '4px';
+    particle.style.height = '4px';
+    particle.style.background = '#f9e076';
+    particle.style.borderRadius = '50%';
+    particle.style.pointerEvents = 'none';
+    particle.style.zIndex = '9998';
+    particle.style.top = '35px';
+    particle.style.right = '50px';
+    particle.style.opacity = '0.7';
+    particle.style.animation = 'floatUp 2s ease-out forwards';
+    document.body.appendChild(particle);
+    setTimeout(() => particle.remove(), 2000);
+  }, 800);
+
+  // Add keyframe animation for particles
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes floatUp {
+      0% { transform: translate(0, 0); opacity: 0.7; }
+      100% { transform: translate(-10px, -100px); opacity: 0; }
+    }
+  `;
+  document.head.appendChild(style);
+
+  // Trigger goal counter after page loads
+  window.addEventListener('load', () => {
+    document.getElementById('goal-counter').style.opacity = '1';
+    updateGoal();
+  });
+
+  // Scroll-triggered section animations
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.section').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Club Tab Switching Logic
+    const tabs = document.querySelectorAll('.club-tab');
+    const panels = document.querySelectorAll('.club-panel');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Remove active from all
+        tabs.forEach(t => t.classList.remove('active'));
+        panels.forEach(p => p.style.display = 'none');
+
+        // Activate clicked tab
+        tab.classList.add('active');
+        const club = tab.getAttribute('data-club');
+        document.querySelector(`.club-panel[data-club="${club}"]`).style.display = 'block';
+
+        // If quiz is opened, reset it
+        if (club === 'quiz') {
+          resetQuiz();
+        }
+      });
+    });
+
+    // Set default active tab on load
+    document.querySelector('.club-tab[data-club="portugal"]').classList.add('active');
+    document.querySelector('.club-panel[data-club="portugal"]').style.display = 'block';
+  });
+
+  // QUIZ LOGIC — FIXED AND VERIFIED
+  function resetQuiz() {
+    document.querySelectorAll('.quiz-option').forEach(btn => {
+      btn.classList.remove('correct', 'incorrect', 'selected');
+      btn.disabled = false;
+      btn.style.backgroundColor = '';
+    });
+    document.getElementById('quiz-result').style.display = 'none';
+    document.getElementById('submit-quiz').disabled = false;
+    document.getElementById('submit-quiz').textContent = 'Submit Answers';
+  }
+
+  // Handle option selection — only one per question
+  document.addEventListener('click', (e) => {
+    const option = e.target.closest('.quiz-option');
+    if (!option) return;
+
+    const question = option.closest('.quiz-question');
+    const options = question.querySelectorAll('.quiz-option');
+
+    // Deselect all options in this question
+    options.forEach(opt => opt.classList.remove('selected'));
+
+    // Select clicked option
+    option.classList.add('selected');
+  });
+
+  document.getElementById('submit-quiz').addEventListener('click', () => {
+    let score = 0;
+    const questions = document.querySelectorAll('.quiz-question');
+
+    questions.forEach(q => {
+      const selectedOption = q.querySelector('.quiz-option.selected');
+      if (selectedOption && selectedOption.getAttribute('data-correct') === 'true') {
+        score++;
+        selectedOption.classList.add('correct');
+      } else if (selectedOption) {
+        selectedOption.classList.add('incorrect');
+      }
+    });
+
+    // Disable all options after submit
+    document.querySelectorAll('.quiz-option').forEach(btn => {
+      btn.disabled = true;
+    });
+
+    // Display result
+    const scoreDisplay = document.getElementById('score-display');
+    const rankMessage = document.getElementById('rank-message');
+    scoreDisplay.textContent = `${score}/5`;
+
+    if (score === 5) {
+      rankMessage.innerHTML = "👑 <span style='color:#f9e076;'>GOAT STATUS</span><br>You know CR7 better than his agent!";
+    } else if (score >= 3) {
+      rankMessage.innerHTML = "🌟 <span style='color:#f9e076;'>Elite Fan</span><br>Legend-level knowledge!";
+    } else if (score === 2) {
+      rankMessage.innerHTML = "⚽ <span style='color:#ccc;'>Passionate Supporter</span><br>Time to rewatch the highlights.";
+    } else {
+      rankMessage.innerHTML = "🤯 <span style='color:#e74c3c;'>Novice</span><br>Go watch ‘The Last Dance’... of CR7.";
+    }
+
+    document.getElementById('quiz-result').style.display = 'block';
+    document.getElementById('submit-quiz').disabled = true;
+    document.getElementById('submit-quiz').textContent = 'Quiz Completed!';
+  });
+
+  document.getElementById('restart-quiz').addEventListener('click', () => {
+    resetQuiz();
+  });
+
+  // SIUUU Click Handler
+  document.getElementById('siuu-screen').addEventListener('click', function() {
+    const siuuScreen = document.getElementById('siuu-screen');
+    const videoOverlay = document.getElementById('video-overlay');
+    const mainSite = document.getElementById('main-site');
+
+    // Hide SIUUU screen
+    siuuScreen.style.display = 'none';
+
+    // Show video overlay with animation
+    videoOverlay.classList.add('active');
+
+    // Play video (with sound!)
+    const video = document.getElementById('cr7-video');
+    video.play().catch(e => {
+      console.warn("Audio autoplay blocked — user interaction required.");
+    });
+
+    // After video ends, fade in main site
+    video.addEventListener('ended', () => {
+      setTimeout(() => {
+        videoOverlay.classList.remove('active');
+        mainSite.style.display = 'block';
+        setTimeout(() => {
+          mainSite.classList.add('fade-in');
+        }, 100);
+      }, 1000); // Wait 1 second after video ends for emotional pause
+    });
+
+    // Fallback if video hangs
+    setTimeout(() => {
+      if (!video.ended && !video.paused) {
+        video.pause();
+        videoOverlay.classList.remove('active');
+        mainSite.style.display = 'block';
+        mainSite.classList.add('fade-in');
+      }
+    }, 8000);
+  });
+</script>
