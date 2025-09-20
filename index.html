@@ -6,37 +6,37 @@
   <title>CR7: The Legacy</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    /* ===== BASE STYLES — LUXURY MINIMALISM ===== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Montserrat', sans-serif;
-      color: #e0e0e0;
-      overflow-x: hidden;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      background: url('https://i.pinimg.com/1200x/35/cc/cf/35cccf86ff4648d7c96d5e0acbc7b68b.jpg') center/cover fixed no-repeat;
-      background-attachment: fixed;
-      filter: brightness(0.85);
-      position: relative;
-      /* 👇 ADD THIS FOR 3D EFFECTS */
-      transform-style: preserve-3d;
-    }
-    body::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at center, rgba(212, 175, 55, 0.05) 0%, transparent 60%);
-      pointer-events: none;
-      z-index: 1;
-    }
+  /* ===== BASE STYLES — LUXURY MINIMALISM ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: #e0e0e0;
+  overflow-x: hidden;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: url('https://i.pinimg.com/1200x/35/cc/cf/35cccf86ff4648d7c96d5e0acbc7b68b.jpg') center/cover fixed no-repeat;
+  background-attachment: fixed;
+  filter: brightness(0.85);
+  position: relative;
+  /* 👇 ADD THIS FOR 3D EFFECTS */
+  transform-style: preserve-3d;
+}
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.05) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+}
 /* ===== SIUUU START SCREEN — LUXURY EMBROIDERY EFFECT (MOBILE-FIXED) ===== */
 #siuu-screen {
   position: fixed;
@@ -86,78 +86,78 @@
 #siuu-text:hover {
   transform: translateX(-50%) translateY(-50%) scale(1.03);
 }
-    @keyframes shimmer {
-      0% { opacity: 0.8; }
-      50% { opacity: 1; }
-      100% { opacity: 0.8; }
-    }
-    #siuu-text::before {
-      content: '';
-      position: absolute;
-      top: -10px;
-      left: -10px;
-      right: -10px;
-      bottom: -10px;
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      border-radius: 8px;
-      pointer-events: none;
-      animation: glow 2s ease-in-out infinite;
-    }
-    @keyframes glow {
-      0%, 100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
-      50% { box-shadow: 0 0 40px rgba(212, 175, 55, 0.7); }
-    }
-    /* ===== VIDEO OVERLAY — CINEMATIC GALLERY STYLE ===== */
-    #video-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: rgba(0, 0, 0, 0.95);
-      z-index: 10000;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    #video-overlay.active {
-      opacity: 1;
-      pointer-events: all;
-    }
-    #cr7-video-container {
-      position: relative;
-      width: 80vw;
-      max-width: 400px;
-      height: calc(80vw * 16 / 9);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-      border: 1px solid rgba(212, 175, 55, 0.2);
-      margin: 0 auto;
-    }
-    #cr7-video {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-    }
-    .video-title {
-      position: absolute;
-      bottom: 20px;
-      left: 20px;
-      color: white;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.8rem;
-      background: rgba(0, 0, 0, 0.5);
-      padding: 8px 16px;
-      border-radius: 6px;
-      backdrop-filter: blur(10px);
-      pointer-events: none;
-    }
-    /* ===== SECOND VIDEO OVERLAY ===== */
+@keyframes shimmer {
+  0% { opacity: 0.8; }
+  50% { opacity: 1; }
+  100% { opacity: 0.8; }
+}
+#siuu-text::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 8px;
+  pointer-events: none;
+  animation: glow 2s ease-in-out infinite;
+}
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
+  50% { box-shadow: 0 0 40px rgba(212, 175, 55, 0.7); }
+}
+/* ===== VIDEO OVERLAY — CINEMATIC GALLERY STYLE ===== */
+#video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 10000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#video-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+#cr7-video-container {
+  position: relative;
+  width: 80vw;
+  max-width: 400px;
+  height: calc(80vw * 16 / 9);
+  border-radius: 12px;
+  overflow: visible;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  margin: 0 auto;
+}
+#cr7-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.video-title {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 8px 16px;
+  border-radius: 6px;
+  backdrop-filter: blur(10px);
+  pointer-events: none;
+}
+/* ===== SECOND VIDEO OVERLAY ===== */
 #video-overlay-2nd {
   position: fixed;
   top: 0;
@@ -181,7 +181,7 @@
   position: relative;
   width: 100%;
   height: 100vh; /* Force full height */
-  overflow: hidden;
+  overflow: visible;
   margin: 0;
 }
 #cr7-video-2nd {
@@ -191,181 +191,181 @@
   object-position: center; /* Centers the most important part */
   display: block;
 }
-   /* ===== MAIN SITE — MUSEUM-LIKE LAYOUT ===== */
-    #main-site {
-      display: none;
-      padding: 60px 5%;
-      flex: 1;
-      background: linear-gradient(to bottom, rgba(10, 10, 10, 0.8), rgba(5, 5, 5, 0.95));
-      position: relative;
-      z-index: 2;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-top: 1px solid rgba(212, 175, 55, 0.1);
-    }
-    .hero {
-      text-align: center;
-      margin-bottom: 80px;
-    }
-    .hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 5rem;
-      font-weight: 700;
-      color: #f9e076;
-      line-height: 1.1;
-      margin-bottom: 20px;
-      text-shadow: 0 0 30px rgba(249, 224, 118, 0.2);
-    }
-    .hero p {
-      font-size: 1.8rem;
-      color: #ccc;
-      max-width: 800px;
-      margin: 0 auto;
-      line-height: 1.7;
-    }
-    /* ===== REAL-TIME GOAL COUNTER (INSIDE MAIN SITE) ===== */
-    #goal-counter {
-      position: relative;
-      top: -40px;
-      margin: 0 auto;
-      width: fit-content;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      color: #f9e076;
-      text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
-      z-index: 10;
-      padding: 10px 20px;
-      background: rgba(10, 10, 10, 0.7);
-      border-radius: 12px;
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      box-shadow: 0 8px 30px rgba(212, 175, 55, 0.1);
-    }
-    #goal-counter div:first-child {
-      font-size: 0.8em;
-      opacity: 0.8;
-    }
-    #goal-number {
-      font-weight: 700;
-    }
-    /* ===== CLUBS JOURNEY WITH TABS === */
-    .section {
-      margin-bottom: 100px;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-    .section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3rem;
-      color: #d4af37;
-      margin-bottom: 40px;
-      text-align: center;
-      position: relative;
-    }
-    .section-title::after {
-      content: '';
-      display: block;
-      width: 100px;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #d4af37, transparent);
-      margin: 20px auto;
-    }
-    .club-tabs {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 40px;
-      padding: 0 20px;
-    }
-    .club-tab {
-      background: rgba(20, 20, 20, 0.5);
-      border: 1px solid rgba(212, 175, 55, 0.2);
-      color: #ccc;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem;
-      padding: 12px 24px;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-      /* Ensure 3D touch works */
-      position: relative;
-      transform-origin: center;
-    }
-    .club-tab:hover {
-      background: rgba(212, 175, 55, 0.1);
-      color: #f9e076;
-      transform: translateY(-3px);
-    }
-    .club-tab.active {
-      background: rgba(212, 175, 55, 0.2);
-      color: #f9e076;
-      border-color: #d4af37;
-      box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
-    }
-    .club-detail-panel {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 30px;
-      background: rgba(10, 10, 10, 0.6);
-      border-radius: 16px;
-      border: 1px solid rgba(212, 175, 55, 0.1);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-    }
-    .club-stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 18px;
-      margin-top: 20px;
-    }
-    .stat {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-      background: rgba(20, 20, 20, 0.4);
-      border-radius: 12px;
-      border: 1px solid rgba(212, 175, 55, 0.1);
-      transition: transform 0.3s ease;
-      /* Ensure 3D touch works */
-      position: relative;
-      transform-origin: center;
-    }
-    .stat:hover {
-      transform: translateY(-5px);
-      background: rgba(212, 175, 55, 0.08);
-    }
-    .label {
-      font-size: 1.2rem;
-      color: #bbb;
-      margin-bottom: 8px;
-      font-weight: 500;
-    }
-    .value {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.8rem;
-      color: #f9e076;
-      font-weight: 600;
-      line-height: 1.2;
-    }
-    .club-panel {
-      display: none;
-    }
-    .club-panel.active {
-      display: block;
-    }
-    /* ===== TOP GOALS === */
-    /* ===== GOAL GALLERY — FIXED ASPECT RATIO & PROPER VIDEO FIT ===== */
+ /* ===== MAIN SITE — MUSEUM-LIKE LAYOUT ===== */
+#main-site {
+  display: none;
+  padding: 60px 5%;
+  flex: 1;
+  background: linear-gradient(to bottom, rgba(10, 10, 10, 0.8), rgba(5, 5, 5, 0.95));
+  position: relative;
+  z-index: 2;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(212, 175, 55, 0.1);
+}
+.hero {
+  text-align: center;
+  margin-bottom: 80px;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 5rem;
+  font-weight: 700;
+  color: #f9e076;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  text-shadow: 0 0 30px rgba(249, 224, 118, 0.2);
+}
+.hero p {
+  font-size: 1.8rem;
+  color: #ccc;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+/* ===== REAL-TIME GOAL COUNTER (INSIDE MAIN SITE) ===== */
+#goal-counter {
+  position: relative;
+  top: -40px;
+  margin: 0 auto;
+  width: fit-content;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  color: #f9e076;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+  z-index: 10;
+  padding: 10px 20px;
+  background: rgba(10, 10, 10, 0.7);
+  border-radius: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.1);
+}
+#goal-counter div:first-child {
+  font-size: 0.8em;
+  opacity: 0.8;
+}
+#goal-number {
+  font-weight: 700;
+}
+/* ===== CLUBS JOURNEY WITH TABS === */
+.section {
+  margin-bottom: 100px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  color: #d4af37;
+  margin-bottom: 40px;
+  text-align: center;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d4af37, transparent);
+  margin: 20px auto;
+}
+.club-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 40px;
+  padding: 0 20px;
+}
+.club-tab {
+  background: rgba(20, 20, 20, 0.5);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  color: #ccc;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  padding: 12px 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  /* Ensure 3D touch works */
+  position: relative;
+  transform-origin: center;
+}
+.club-tab:hover {
+  background: rgba(212, 175, 55, 0.1);
+  color: #f9e076;
+  transform: translateY(-3px);
+}
+.club-tab.active {
+  background: rgba(212, 175, 55, 0.2);
+  color: #f9e076;
+  border-color: #d4af37;
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+}
+.club-detail-panel {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px;
+  background: rgba(10, 10, 10, 0.6);
+  border-radius: 16px;
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+.club-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+  margin-top: 20px;
+}
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background: rgba(20, 20, 20, 0.4);
+  border-radius: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  transition: transform 0.3s ease;
+  /* Ensure 3D touch works */
+  position: relative;
+  transform-origin: center;
+}
+.stat:hover {
+  transform: translateY(-5px);
+  background: rgba(212, 175, 55, 0.08);
+}
+.label {
+  font-size: 1.2rem;
+  color: #bbb;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  color: #f9e076;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.club-panel {
+  display: none;
+}
+.club-panel.active {
+  display: block;
+}
+/* ===== TOP GOALS === */
+/* ===== GOAL GALLERY — FIXED ASPECT RATIO & PROPER VIDEO FIT ===== */
 .goal-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -392,22 +392,22 @@
   display: block;
   background: #000; /* Fallback black if video fails to load */
 }
-    .goal-item iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-    .goal-caption {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(0, 0, 0, 0.7);
-      color: white;
-      padding: 16px;
-      font-size: 1.4rem;
-      font-family: 'Cormorant Garamond', serif;
-    }
+.goal-item iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.goal-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 16px;
+  font-size: 1.4rem;
+  font-family: 'Cormorant Garamond', serif;
+}
 /* ===== MUTE BUTTON STYLING ===== */
 .mute-btn {
   position: absolute;
@@ -445,250 +445,250 @@
 .mute-btn:hover svg {
   filter: drop-shadow(0 0 8px rgba(249, 224, 118, 0.5));
 }
-    /* ===== LEGACY STATS === */
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-    }
-    .stat-card {
-      text-align: center;
-      background: rgba(20, 20, 20, 0.6);
-      border-radius: 12px;
-      padding: 30px;
-      border: 1px solid rgba(212, 175, 55, 0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
-      /* Ensure 3D touch works */
-      position: relative;
-      transform-origin: center;
-    }
-    .stat-card:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 15px 50px rgba(212, 175, 55, 0.2);
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-    .stat-number {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3rem;
-      color: #f9e076;
-      margin-bottom: 10px;
-    }
-    .stat-label {
-      font-size: 1.4rem;
-      color: #ccc;
-    }
-    footer {
-      text-align: center;
-      padding: 50px 0;
-      font-size: 1.3rem;
-      color: #777;
-      border-top: 1px solid rgba(212, 175, 55, 0.1);
-    }
-    footer a {
-      color: #d4af37;
-      text-decoration: none;
-      border-bottom: 1px dotted #d4af37;
-    }
-    /* ===== ANIMATIONS ===== */
-    .fade-in {
-      animation: fadeIn 1.2s ease-out forwards;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    /* ===== ULTIMATE MOBILE OPTIMIZATIONS ===== */
-    @media (max-width: 768px) {
-      /* Make video container taller on phones (better portrait view) */
-      #cr7-video-container {
-        width: 95vw;
-        height: calc(95vw * 16 / 9);
-        margin: 0 auto;
-      }
-      /* Reduce font sizes slightly for tighter reading */
-      .hero h1 { font-size: 3rem !important; }
-      .hero p { font-size: 1.5rem !important; }
-      .section-title { font-size: 2.5rem !important; }
-      .club-tab { font-size: 1.3rem !important; padding: 10px 16px !important; }
-      .stat-number { font-size: 2.3rem !important; }
-      .value { font-size: 1.6rem !important; }
-      .label { font-size: 1.1rem !important; }
-      /* Ensure goal counter doesn't overflow */
-      #goal-counter {
-        font-size: 1.8rem !important;
-        padding: 8px 16px !important;
-        top: -30px !important;
-      }
-      /* Improve club panel spacing */
-      .club-detail-panel {
-        padding: 20px !important;
-        margin: 0 10px !important;
-      }
-      /* Make gallery items stack vertically on small screens */
-      .goal-gallery {
-        grid-template-columns: 1fr !important;
-        gap: 20px !important;
-      }
-      .goal-item iframe {
-        height: 200px !important;
-      }
-      /* Prevent text overflow in legacy descriptions */
-      .stat span.value,
-      .stat span.label {
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        hyphens: auto;
-      }
-      /* Add subtle tap feedback for buttons */
-      .club-tab {
-        transition: transform 0.2s ease;
-      }
-      .club-tab:active {
-        transform: scale(0.98);
-      }
-      /* Fix footer text wrapping */
-      footer {
-        font-size: 1.2rem !important;
-        line-height: 1.6 !important;
-      }
-    }
-    /* === EXTRA: Touch-Friendly Tap Targets === */
-    button, .club-tab {
-      min-height: 48px;
-      min-width: 48px;
-    }
-    /* ===== QUIZ STYLING ===== */
-    .quiz-container {
-      padding: 40px;
-      background: rgba(10, 10, 10, 0.6);
-      border-radius: 16px;
-      border: 1px solid rgba(212, 175, 55, 0.1);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .quiz-question {
-      animation: fadeInUp 0.6s ease-out;
-    }
-    .quiz-option {
-      display: block;
-      width: 100%;
-      padding: 18px;
-      margin-bottom: 12px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.6rem;
-      color: #eee;
-      background: rgba(30, 30, 30, 0.7);
-      border: 1px solid rgba(212, 175, 55, 0.1);
-      border-radius: 10px;
-      text-align: left;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      /* Ensure 3D touch works */
-      position: relative;
-      transform-origin: center;
-    }
-    .quiz-option:hover {
-      background: rgba(212, 175, 55, 0.1);
-      transform: translateX(8px);
-      color: #f9e076;
-      border-color: #d4af37;
-    }
-    .quiz-option.correct {
-      background: rgba(46, 204, 113, 0.2);
-      border-color: #2ecc71;
-      color: #2ecc71;
-      animation: pulseGreen 0.6s ease-out;
-    }
-    .quiz-option.incorrect {
-      background: rgba(231, 76, 60, 0.2);
-      border-color: #e74c3c;
-      color: #e74c3c;
-      animation: pulseRed 0.6s ease-out;
-    }
-    #submit-quiz {
-      display: block;
-      margin: 40px auto 0;
-      padding: 16px 40px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.8rem;
-      color: #f9e076;
-      background: rgba(212, 175, 55, 0.2);
-      border: 1px solid #d4af37;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
-      /* Ensure 3D touch works */
-      position: relative;
-      transform-origin: center;
-    }
-    #submit-quiz:hover {
-      background: rgba(212, 175, 55, 0.3);
-      box-shadow: 0 12px 35px rgba(212, 175, 55, 0.3);
-    }
-    #quiz-result {
-      display: none;
-      text-align: center;
-      margin-top: 50px;
-      padding: 40px;
-      border-radius: 16px;
-      background: rgba(10, 10, 10, 0.7);
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    #score-display {
-      font-size: 4rem;
-      color: #d4af37;
-      margin: 20px 0;
-    }
-    #rank-message {
-      font-size: 1.8rem;
-      color: #ccc;
-      line-height: 1.6;
-    }
-    #restart-quiz {
-      margin-top: 30px;
-      padding: 12px 30px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      color: #f9e076;
-      background: rgba(212, 175, 55, 0.2);
-      border: 1px solid #d4af37;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      /* Ensure 3D touch works */
-      position: relative;
-      transform-origin: center;
-    }
-    #restart-quiz:hover {
-      background: rgba(212, 175, 55, 0.3);
-      box-shadow: 0 12px 35px rgba(212, 175, 55, 0.3);
-    }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes pulseGreen {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.03); }
-      100% { transform: scale(1); }
-    }
-    @keyframes pulseRed {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.03); }
-      100% { transform: scale(1); }
-    }
-    /* ===== PARTICLE ANIMATION ===== */
-    /* REMOVED OLD PARTICLE ANIMATION — REPLACED BELOW */
-    /* ===== LUXURY BACKGROUND ATMOSPHERE — CINEMATIC LIGHTING ===== */
+/* ===== LEGACY STATS === */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+.stat-card {
+  text-align: center;
+  background: rgba(20, 20, 20, 0.6);
+  border-radius: 12px;
+  padding: 30px;
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  /* Ensure 3D touch works */
+  position: relative;
+  transform-origin: center;
+}
+.stat-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 50px rgba(212, 175, 55, 0.2);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.stat-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  color: #f9e076;
+  margin-bottom: 10px;
+}
+.stat-label {
+  font-size: 1.4rem;
+  color: #ccc;
+}
+footer {
+  text-align: center;
+  padding: 50px 0;
+  font-size: 1.3rem;
+  color: #777;
+  border-top: 1px solid rgba(212, 175, 55, 0.1);
+}
+footer a {
+  color: #d4af37;
+  text-decoration: none;
+  border-bottom: 1px dotted #d4af37;
+}
+/* ===== ANIMATIONS ===== */
+.fade-in {
+  animation: fadeIn 1.2s ease-out forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* ===== ULTIMATE MOBILE OPTIMIZATIONS ===== */
+@media (max-width: 768px) {
+  /* Make video container taller on phones (better portrait view) */
+  #cr7-video-container {
+    width: 95vw;
+    height: calc(95vw * 16 / 9);
+    margin: 0 auto;
+  }
+  /* Reduce font sizes slightly for tighter reading */
+  .hero h1 { font-size: 3rem !important; }
+  .hero p { font-size: 1.5rem !important; }
+  .section-title { font-size: 2.5rem !important; }
+  .club-tab { font-size: 1.3rem !important; padding: 10px 16px !important; }
+  .stat-number { font-size: 2.3rem !important; }
+  .value { font-size: 1.6rem !important; }
+  .label { font-size: 1.1rem !important; }
+  /* Ensure goal counter doesn't overflow */
+  #goal-counter {
+    font-size: 1.8rem !important;
+    padding: 8px 16px !important;
+    top: -30px !important;
+  }
+  /* Improve club panel spacing */
+  .club-detail-panel {
+    padding: 20px !important;
+    margin: 0 10px !important;
+  }
+  /* Make gallery items stack vertically on small screens */
+  .goal-gallery {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  .goal-item iframe {
+    height: 200px !important;
+  }
+  /* Prevent text overflow in legacy descriptions */
+  .stat span.value,
+  .stat span.label {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  /* Add subtle tap feedback for buttons */
+  .club-tab {
+    transition: transform 0.2s ease;
+  }
+  .club-tab:active {
+    transform: scale(0.98);
+  }
+  /* Fix footer text wrapping */
+  footer {
+    font-size: 1.2rem !important;
+    line-height: 1.6 !important;
+  }
+}
+/* === EXTRA: Touch-Friendly Tap Targets === */
+button, .club-tab {
+  min-height: 48px;
+  min-width: 48px;
+}
+/* ===== QUIZ STYLING ===== */
+.quiz-container {
+  padding: 40px;
+  background: rgba(10, 10, 10, 0.6);
+  border-radius: 16px;
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  max-width: 800px;
+  margin: 0 auto;
+}
+.quiz-question {
+  animation: fadeInUp 0.6s ease-out;
+}
+.quiz-option {
+  display: block;
+  width: 100%;
+  padding: 18px;
+  margin-bottom: 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.6rem;
+  color: #eee;
+  background: rgba(30, 30, 30, 0.7);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  border-radius: 10px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  /* Ensure 3D touch works */
+  position: relative;
+  transform-origin: center;
+}
+.quiz-option:hover {
+  background: rgba(212, 175, 55, 0.1);
+  transform: translateX(8px);
+  color: #f9e076;
+  border-color: #d4af37;
+}
+.quiz-option.correct {
+  background: rgba(46, 204, 113, 0.2);
+  border-color: #2ecc71;
+  color: #2ecc71;
+  animation: pulseGreen 0.6s ease-out;
+}
+.quiz-option.incorrect {
+  background: rgba(231, 76, 60, 0.2);
+  border-color: #e74c3c;
+  color: #e74c3c;
+  animation: pulseRed 0.6s ease-out;
+}
+#submit-quiz {
+  display: block;
+  margin: 40px auto 0;
+  padding: 16px 40px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  color: #f9e076;
+  background: rgba(212, 175, 55, 0.2);
+  border: 1px solid #d4af37;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+  /* Ensure 3D touch works */
+  position: relative;
+  transform-origin: center;
+}
+#submit-quiz:hover {
+  background: rgba(212, 175, 55, 0.3);
+  box-shadow: 0 12px 35px rgba(212, 175, 55, 0.3);
+}
+#quiz-result {
+  display: none;
+  text-align: center;
+  margin-top: 50px;
+  padding: 40px;
+  border-radius: 16px;
+  background: rgba(10, 10, 10, 0.7);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#score-display {
+  font-size: 4rem;
+  color: #d4af37;
+  margin: 20px 0;
+}
+#rank-message {
+  font-size: 1.8rem;
+  color: #ccc;
+  line-height: 1.6;
+}
+#restart-quiz {
+  margin-top: 30px;
+  padding: 12px 30px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  color: #f9e076;
+  background: rgba(212, 175, 55, 0.2);
+  border: 1px solid #d4af37;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  /* Ensure 3D touch works */
+  position: relative;
+  transform-origin: center;
+}
+#restart-quiz:hover {
+  background: rgba(212, 175, 55, 0.3);
+  box-shadow: 0 12px 35px rgba(212, 175, 55, 0.3);
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulseGreen {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+@keyframes pulseRed {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+/* ===== PARTICLE ANIMATION ===== */
+/* REMOVED OLD PARTICLE ANIMATION — REPLACED BELOW */
+/* ===== LUXURY BACKGROUND ATMOSPHERE — CINEMATIC LIGHTING ===== */
 body::after {
   content: '';
   position: fixed;
@@ -761,36 +761,33 @@ body::after {
   0%, 100% { opacity: 0; transform: scale(0.8); }
   50% { opacity: 0.15; transform: scale(1.2); }
 }
-/* ===== SKIP BUTTON STYLING ===== */
-.skip-btn {
+/* ===== NEW SKIP BUTTON STYLING ===== */
+.new-skip-btn {
   position: absolute;
   top: 20px;
   right: 20px;
-  background: rgba(212, 175, 55, 0.2);
-  color: #f9e076;
-  border: 1px solid #d4af37;
-  border-radius: 25px;
-  padding: 10px 20px;
+  background: linear-gradient(135deg, #d4af37, #f9e076);
+  color: #1a1a1a;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 24px;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: 1.3rem;
+  font-weight: 700;
   cursor: pointer;
-  z-index: 10002;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  /* Ensure 3D touch works */
-  position: relative;
-  transform-origin: center;
+  z-index: 10005;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
-.skip-btn:hover {
-  background: rgba(212, 175, 55, 0.3);
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
+.new-skip-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.6);
+  background: linear-gradient(135deg, #f9e076, #d4af37);
 }
-.skip-btn:active {
-  transform: translateY(0) scale(0.98);
+.new-skip-btn:active {
+  transform: translateY(1px) scale(0.98);
 }
 /* ===== SNAKE-LINE ROADMAP STYLING ===== */
 .roadmap-section {
@@ -1083,9 +1080,8 @@ body::after {
     font-size: 1.3rem;
   }
 }
-
 /* ===== 3D TOUCH SAFEGUARD ===== */
-.club-tab, .stat-card, .goal-item, .quiz-option, .skip-btn, .stat, .milestone-content, .mute-btn, .club-logo, #submit-quiz, #restart-quiz {
+.club-tab, .stat-card, .goal-item, .quiz-option, .new-skip-btn, .stat, .milestone-content, .mute-btn, .club-logo, #submit-quiz, #restart-quiz {
   position: relative; /* Ensure transform works */
   transform-origin: center;
   will-change: transform, box-shadow; /* Performance optimization */
@@ -1136,7 +1132,7 @@ body::after {
         Your browser does not support the video tag.
       </video>
       <!-- Skip Button for First Video -->
-      <button class="skip-btn" id="skip-first-video">Skip Intro</button>
+      <button class="new-skip-btn" id="skip-first-video">Skip Intro</button>
     </div>
   </div>
   <!-- === SECOND VIDEO OVERLAY — LEGACY MOMENT === -->
@@ -1147,7 +1143,7 @@ body::after {
       Your browser does not support the video tag.
     </video>
     <!-- Skip Button for Second Video -->
-    <button class="skip-btn" id="skip-second-video">Skip to Legacy</button>
+    <button class="new-skip-btn" id="skip-second-video">Skip to Legacy</button>
   </div>
 </div>
   <!-- === MAIN WEBSITE === -->
@@ -1412,12 +1408,12 @@ body::after {
   <div class="goal-gallery">
     <!-- FIRST VIDEO: UNMUTED BY DEFAULT -->
     <div class="goal-item">
-      <video class="goal-video" autoplay loop playsinline poster="https://assets-cms.thescore.com/uploads/image/file/401278/w640xh480_GettyImages-941534222.jpg?ts=1587528222">
+      <video class="goal-video" playsinline poster="https://assets-cms.thescore.com/uploads/image/file/401278/w640xh480_GettyImages-941534222.jpg?ts=1587528222">
         <source src="bicycle-kick.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
       <button class="mute-btn" aria-label="Mute audio">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M11 5L6 9H11V15H6L11 19V5Z" fill="#f9e076"/>
           <path d="M15.5 12C15.5 13.933 14.75 15.738 13.45 17.05L15.5 19.1V12Z" fill="#f9e076"/>
           <path d="M19.8 16.2C20.6 15.1 21 13.7 21 12C21 10.3 20.6 8.9 19.8 7.8L17.5 10.1C18.1 11 18.5 12 18.5 13C18.5 14 18.1 15 17.5 15.9L19.8 16.2Z" fill="#f9e076"/>
@@ -1426,12 +1422,12 @@ body::after {
     </div>
     <!-- OTHER VIDEOS: MUTED BY DEFAULT -->
     <div class="goal-item">
-      <video class="goal-video" muted preload="metadata" playsinline>
+      <video class="goal-video" preload="metadata" playsinline>
         <source src="free-kick.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
       <button class="mute-btn" aria-label="Unmute audio">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M11 5L6 9H11V15H6L11 19V5Z" fill="#f9e076"/>
           <path d="M15.5 12C15.5 13.933 14.75 15.738 13.45 17.05L15.5 19.1V12Z" fill="#f9e076"/>
           <path d="M19.8 16.2C20.6 15.1 21 13.7 21 12C21 10.3 20.6 8.9 19.8 7.8L17.5 10.1C18.1 11 18.5 12 18.5 13C18.5 14 18.1 15 17.5 15.9L19.8 16.2Z" fill="#f9e076"/>
@@ -1442,12 +1438,12 @@ body::after {
       </button>
     </div>
     <div class="goal-item">
-      <video class="goal-video" muted preload="metadata" playsinline>
+      <video class="goal-video" preload="metadata" playsinline>
         <source src="six-pack.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
       <button class="mute-btn" aria-label="Unmute audio">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M11 5L6 9H11V15H6L11 19V5Z" fill="#f9e076"/>
           <path d="M15.5 12C15.5 13.933 14.75 15.738 13.45 17.05L15.5 19.1V12Z" fill="#f9e076"/>
           <path d="M19.8 16.2C20.6 15.1 21 13.7 21 12C21 10.3 20.6 8.9 19.8 7.8L17.5 10.1C18.1 11 18.5 12 18.5 13C18.5 14 18.1 15 17.5 15.9L19.8 16.2Z" fill="#f9e076"/>
@@ -1458,12 +1454,12 @@ body::after {
       </button>
     </div>
     <div class="goal-item">
-      <video class="goal-video" muted preload="metadata" playsinline>
+      <video class="goal-video" preload="metadata" playsinline>
         <source src="juve-naldo.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
       <button class="mute-btn" aria-label="Unmute audio">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M11 5L6 9H11V15H6L11 19V5Z" fill="#f9e076"/>
           <path d="M15.5 12C15.5 13.933 14.75 15.738 13.45 17.05L15.5 19.1V12Z" fill="#f9e076"/>
           <path d="M19.8 16.2C20.6 15.1 21 13.7 21 12C21 10.3 20.6 8.9 19.8 7.8L17.5 10.1C18.1 11 18.5 12 18.5 13C18.5 14 18.1 15 17.5 15.9L19.8 16.2Z" fill="#f9e076"/>
@@ -1474,7 +1470,8 @@ body::after {
       </button>
     </div>
   </div>
-</section>
+</section> <!-- ✅ CLOSED SECTION TAG -->
+
     <!-- === LEGACY STATS === -->
     <section class="section">
       <h2 class="section-title">The Numbers That Defy Reality</h2>
@@ -1504,423 +1501,388 @@ body::after {
           <div class="stat-label">Years at World-Class Level</div>
         </div>
       </div>
-    </section>
+    </section> <!-- ✅ CLOSED SECTION TAG -->
+
     <footer>
       © 2025 The Legacy of Cristiano Ronaldo — A Digital Monument.<br>
       Created not for clicks, but for reverence.
       <br><br>
       “He didn’t play football. He redefined what it meant to be human.”
     </footer>
-  </div>
+  </div> <!-- ✅ CLOSED #main-site DIV -->
+
+  <!-- ✅✅✅ WRAP JAVASCRIPT IN <script> TAGS ✅✅✅ -->
   <script>
-  console.log("🏛️ CR7 Legacy Museum — Initializing...");
-  // Floating Particles (Legacy - kept for reference, but golden particles are main attraction)
-  setInterval(() => {
-    const particle = document.createElement('div');
-    particle.style.position = 'fixed';
-    particle.style.width = '4px';
-    particle.style.height = '4px';
-    particle.style.background = '#f9e076';
-    particle.style.borderRadius = '50%';
-    particle.style.pointerEvents = 'none';
-    particle.style.zIndex = '9998';
-    particle.style.top = '35px';
-    particle.style.right = '50px';
-    particle.style.opacity = '0.7';
-    particle.style.animation = 'floatUp 2s ease-out forwards';
-    document.body.appendChild(particle);
-    setTimeout(() => particle.remove(), 2000);
-  }, 800);
-  // ===== DYNAMIC GOLDEN PARTICLES + LIGHT FLARES =====
-function createGoldenParticle() {
-  const particle = document.createElement('div');
-  particle.classList.add('golden-particle');
-  // Start from bottom 30% of screen for better visibility
-  const startX = Math.random() * 100; // % from left
-  const startY = Math.random() * 100; // Changed from 70 + Math.random() * 30 to cover full height
-  const endX = startX + (Math.random() * 40 - 20); // ±20% horizontal drift
-  const endY = startY - (20 + Math.random() * 80); // Float up 20-100%
-  particle.style.left = `${startX}%`;
-  particle.style.top = `${startY}%`;
-  // Set custom properties for animation
-  particle.style.setProperty('--start-x', `${startX}%`);
-  particle.style.setProperty('--start-y', `${startY}%`);
-  particle.style.setProperty('--end-x', `${endX}%`);
-  particle.style.setProperty('--end-y', `${endY}%`);
-  particle.style.setProperty('--opacity', 0.8 + Math.random() * 0.2); // Changed from 0.6 + Math.random() * 0.4
-  // Random size for variety (2px to 6px)
-  const size = 5 + Math.random() * 8; // Changed from 3 + Math.random() * 5 to 5–13px
-  particle.style.width = `${size}px`;
-  particle.style.height = `${size * (0.8 + Math.random() * 0.4)}px`; // Slight height variation for oval shapes
-  // Slightly randomized duration (4s to 8s)
-  const duration = 4 + Math.random() * 4;
-  particle.style.animationDuration = `${duration}s`;
-  document.body.appendChild(particle);
-  // Remove after animation completes
-  setTimeout(() => {
-    if (particle && particle.parentNode) {
-      particle.remove();
-    }
-  }, duration * 1000);
-}
-function createLightFlare() {
-  const flare = document.createElement('div');
-  flare.classList.add('light-flare');
-  // Random position
-  flare.style.left = `${Math.random() * 100}%`;
-  flare.style.top = `${Math.random() * 100}%`;
-  flare.style.animationDelay = `${Math.random() * 5}s`;
-  document.body.appendChild(flare);
-  setTimeout(() => flare.remove(), 12000);
-}
-// SPAWN PARTICLES CONTINUOUSLY WITH NATURAL RANDOMNESS
-function spawnParticleRandomly() {
-  createGoldenParticle()
-  // Next particle in 0.3s to 1.2s (creates organic flow)
-  setTimeout(spawnParticleRandomly, 200 + Math.random() * 600); // Changed from 300 + Math.random() * 900
-}
-// Start the infinite particle flow
-spawnParticleRandomly();
-// Keep light flares on a slower cycle
-setInterval(createLightFlare, 4000);
-// Initialize immediately on load
-window.addEventListener('load', () => {
-  for (let i = 0; i < 5; i++) {
-    createGoldenParticle();
-    if (i % 2 === 0) createLightFlare();
-  }
-});
-  // Add keyframe animation for particles (legacy - golden particles use their own)
-  const style = document.createElement('style');
-  style.textContent = `
-    @keyframes floatUp {
-      0% { transform: translate(0, 0); opacity: 0.7; }
-      100% { transform: translate(-10px, -100px); opacity: 0; }
-    }
-  `;
-  document.head.appendChild(style);
-  // Scroll-triggered section animations
-  document.addEventListener('DOMContentLoaded', () => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.section').forEach(el => {
-      observer.observe(el);
-    });
-    // Also observe roadmap milestones
-    document.querySelectorAll('.roadmap-milestone').forEach(el => {
-      observer.observe(el);
-    });
-    // Club Tab Switching Logic
-    const tabs = document.querySelectorAll('.club-tab');
-    const panels = document.querySelectorAll('.club-panel');
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        // Remove active from all
-        tabs.forEach(t => t.classList.remove('active'));
-        panels.forEach(p => p.style.display = 'none');
-        // Activate clicked tab
-        tab.classList.add('active');
-        const club = tab.getAttribute('data-club');
-        document.querySelector(`.club-panel[data-club="${club}"]`).style.display = 'block';
-        // If quiz is opened, reset it
-        if (club === 'quiz') {
-          resetQuiz();
-        }
-      });
-    });
-    // Set default active tab on load
-    document.querySelector('.club-tab[data-club="portugal"]').classList.add('active');
-    document.querySelector('.club-panel[data-club="portugal"]').style.display = 'block';
-  });
-  // QUIZ LOGIC — FIXED AND VERIFIED
-  function resetQuiz() {
-    document.querySelectorAll('.quiz-option').forEach(btn => {
-      btn.classList.remove('correct', 'incorrect', 'selected');
-      btn.disabled = false;
-      btn.style.backgroundColor = '';
-    });
-    document.getElementById('quiz-result').style.display = 'none';
-    document.getElementById('submit-quiz').disabled = false;
-    document.getElementById('submit-quiz').textContent = 'Submit Answers';
-  }
-  // Handle option selection — only one per question
-  document.addEventListener('click', (e) => {
-    const option = e.target.closest('.quiz-option');
-    if (!option) return;
-    const question = option.closest('.quiz-question');
-    const options = question.querySelectorAll('.quiz-option');
-    // Deselect all options in this question
-    options.forEach(opt => opt.classList.remove('selected'));
-    // Select clicked option
-    option.classList.add('selected');
-  });
-  document.getElementById('submit-quiz').addEventListener('click', () => {
-    let score = 0;
-    const questions = document.querySelectorAll('.quiz-question');
-    questions.forEach(q => {
-      const selectedOption = q.querySelector('.quiz-option.selected');
-      if (selectedOption && selectedOption.getAttribute('data-correct') === 'true') {
-        score++;
-        selectedOption.classList.add('correct');
-      } else if (selectedOption) {
-        selectedOption.classList.add('incorrect');
-      }
-    });
-    // Disable all options after submit
-    document.querySelectorAll('.quiz-option').forEach(btn => {
-      btn.disabled = true;
-    });
-    // Display result
-    const scoreDisplay = document.getElementById('score-display');
-    const rankMessage = document.getElementById('rank-message');
-    scoreDisplay.textContent = `${score}/5`;
-    if (score === 5) {
-      rankMessage.innerHTML = "👑 <span style='color:#f9e076;'>GOAT STATUS</span><br>You know CR7 better than his agent!";
-    } else if (score >= 3) {
-      rankMessage.innerHTML = "🌟 <span style='color:#f9e076;'>Elite Fan</span><br>Legend-level knowledge!";
-    } else if (score === 2) {
-      rankMessage.innerHTML = "⚽ <span style='color:#ccc;'>Passionate Supporter</span><br>Time to rewatch the highlights.";
-    } else {
-      rankMessage.innerHTML = "🤯 <span style='color:#e74c3c;'>Novice</span><br>Go watch ‘The Last Dance’... of CR7.";
-    }
-    document.getElementById('quiz-result').style.display = 'block';
-    document.getElementById('submit-quiz').disabled = true;
-    document.getElementById('submit-quiz').textContent = 'Quiz Completed!';
-  });
-  document.getElementById('restart-quiz').addEventListener('click', () => {
-    resetQuiz();
-  });
-  // === VIDEO CONTROL LOGIC WITH MUTE/UNMUTE ===
-const goalVideos = document.querySelectorAll('.goal-video');
-const muteButtons = document.querySelectorAll('.mute-btn');
-let activeVideo = null;
-// Function to update mute button icon based on video state
-function updateMuteButton(video, button) {
-  if (video.muted || video.volume === 0) {
-    // Show muted icon (speaker with slash)
-    button.innerHTML = `
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M11 5L6 9H11V15H6L11 19V5Z" fill="#f9e076"/>
-        <path d="M15.5 12C15.5 13.933 14.75 15.738 13.45 17.05L15.5 19.1V12Z" fill="#f9e076"/>
-        <path d="M19.8 16.2C20.6 15.1 21 13.7 21 12C21 10.3 20.6 8.9 19.8 7.8L17.5 10.1C18.1 11 18.5 12 18.5 13C18.5 14 18.1 15 17.5 15.9L19.8 16.2Z" fill="#f9e076"/>
-        <path d="M23 12C23 13.6569 22.3178 15.2072 21.1623 16.3623C20.0068 17.5174 18.4565 18.2 16.8 18.2C15.1435 18.2 13.5932 17.5174 12.4377 16.3623C11.2822 15.2072 10.6 13.6569 10.6 12C10.6 10.3431 11.2822 8.79277 12.4377 7.63725C13.5932 6.48174 15.1435 5.8 16.8 5.8C18.4565 5.8 20.0068 6.48174 21.1623 7.63725C22.3178 8.79277 23 10.3431 23 12Z" fill="#f9e076"/>
-        <path d="M17.5 10.1L15.5 12L17.5 13.9" stroke="#f9e076" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M15.5 12L17.5 10.1" stroke="#f9e076" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    `;
-    button.setAttribute('aria-label', 'Unmute audio');
-  } else {
-    // Show unmuted icon (speaker without slash)
-    button.innerHTML = `
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M11 5L6 9H11V15H6L11 19V5Z" fill="#f9e076"/>
-        <path d="M15.5 12C15.5 13.933 14.75 15.738 13.45 17.05L15.5 19.1V12Z" fill="#f9e076"/>
-        <path d="M19.8 16.2C20.6 15.1 21 13.7 21 12C21 10.3 20.6 8.9 19.8 7.8L17.5 10.1C18.1 11 18.5 12 18.5 13C18.5 14 18.1 15 17.5 15.9L19.8 16.2Z" fill="#f9e076"/>
-      </svg>
-    `;
-    button.setAttribute('aria-label', 'Mute audio');
-  }
-}
-// Handle click on any mute button
-muteButtons.forEach((button, index) => {
-  const video = goalVideos[index];
-  button.addEventListener('click', () => {
-    if (video.muted) {
-      video.muted = false;
-      video.play().catch(e => console.warn("Autoplay blocked — user interaction required."));
-    } else {
-      video.muted = true;
-    }
-    updateMuteButton(video, button);
-  });
-});
-// Handle video click (play/pause toggle)
-goalVideos.forEach((video, index) => {
-  video.addEventListener('click', () => {
-    if (video.paused) {
-      // Pause all other videos
-      goalVideos.forEach(v => {
-        if (v !== video) {
-          v.pause();
-          v.currentTime = 0;
-        }
-      });
-      // Play clicked video
-      video.play().catch(e => {
-        console.warn("Autoplay blocked — user interaction required.");
-      });
-      // Set as active
-      activeVideo = video;
-    } else {
-      video.pause();
-      activeVideo = null;
-    }
-    // Update mute button UI for this video
-    updateMuteButton(video, muteButtons[index]);
-  });
-});
-// Initialize mute buttons based on initial state
-goalVideos.forEach((video, index) => {
-  updateMuteButton(video, muteButtons[index]);
-});
-// ===== SKIP BUTTON FUNCTIONALITY =====
-document.getElementById('skip-first-video').addEventListener('click', function() {
-  const videoOverlay = document.getElementById('video-overlay');
-  const videoOverlay2nd = document.getElementById('video-overlay-2nd');
-  const mainSite = document.getElementById('main-site');
-  // Hide first video overlay
-  videoOverlay.classList.remove('active');
-  // Show second video after a brief delay
-  setTimeout(() => {
-    videoOverlay2nd.classList.add('active');
-    const video2nd = document.getElementById('cr7-video-2nd');
-    video2nd.play().catch(e => console.warn("Autoplay blocked — user interaction required."));
-    // When second video ends, show main site
-    video2nd.addEventListener('ended', () => {
+    console.log("🏛️ CR7 Legacy Museum — Initializing...");
+    // Floating Particles (Legacy - kept for reference, but golden particles are main attraction)
+    setInterval(() => {
+      const particle = document.createElement('div');
+      particle.style.position = 'fixed';
+      particle.style.width = '4px';
+      particle.style.height = '4px';
+      particle.style.background = '#f9e076';
+      particle.style.borderRadius = '50%';
+      particle.style.pointerEvents = 'none';
+      particle.style.zIndex = '9998';
+      particle.style.top = '35px';
+      particle.style.right = '50px';
+      particle.style.opacity = '0.7';
+      particle.style.animation = 'floatUp 2s ease-out forwards';
+      document.body.appendChild(particle);
+      setTimeout(() => particle.remove(), 2000);
+    }, 800);
+
+    // ===== DYNAMIC GOLDEN PARTICLES + LIGHT FLARES =====
+    function createGoldenParticle() {
+      const particle = document.createElement('div');
+      particle.classList.add('golden-particle');
+      // Start from bottom 30% of screen for better visibility
+      const startX = Math.random() * 100; // % from left
+      const startY = Math.random() * 100;
+      const endX = startX + (Math.random() * 40 - 20);
+      const endY = startY - (20 + Math.random() * 80);
+      particle.style.left = `${startX}%`;
+      particle.style.top = `${startY}%`;
+      particle.style.setProperty('--start-x', `${startX}%`);
+      particle.style.setProperty('--start-y', `${startY}%`);
+      particle.style.setProperty('--end-x', `${endX}%`);
+      particle.style.setProperty('--end-y', `${endY}%`);
+      particle.style.setProperty('--opacity', 0.8 + Math.random() * 0.2);
+      const size = 5 + Math.random() * 8;
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size * (0.8 + Math.random() * 0.4)}px`;
+      const duration = 4 + Math.random() * 4;
+      particle.style.animationDuration = `${duration}s`;
+      document.body.appendChild(particle);
       setTimeout(() => {
-        videoOverlay2nd.classList.remove('active');
-        mainSite.style.display = 'block';
-        setTimeout(() => {
-          mainSite.classList.add('fade-in');
-        }, 100);
-      }, 1000);
-    });
-  }, 500);
-});
-document.getElementById('skip-second-video').addEventListener('click', function() {
-  const videoOverlay2nd = document.getElementById('video-overlay-2nd');
-  const mainSite = document.getElementById('main-site');
-  // Hide second video overlay
-  videoOverlay2nd.classList.remove('active');
-  // Show main site immediately
-  mainSite.style.display = 'block';
-  setTimeout(() => {
-    mainSite.classList.add('fade-in');
-  }, 100);
-});
-document.getElementById('skip-second-video').addEventListener('click', function() {
-  // Existing code...
-  isOverlayActive = false;
-  // Initial burst of particles
-  for (let i = 0; i < 10; i++) {
-    setTimeout(createGoldenParticle, i * 100);
-  }
-});
+        if (particle && particle.parentNode) {
+          particle.remove();
+        }
+      }, duration * 1000);
+    }
 
-document.getElementById('cr7-video-2nd').addEventListener('ended', () => {
-  // Existing code...
-  isOverlayActive = false;
-  // Initial burst of particles
-  for (let i = 0; i < 10; i++) {
-    setTimeout(createGoldenParticle, i * 100);
-  }
-});
-  // SIUUU Click Handler
-  document.getElementById('siuu-screen').addEventListener('click', function() {
-    const siuuScreen = document.getElementById('siuu-screen');
-    const videoOverlay = document.getElementById('video-overlay');
-    const mainSite = document.getElementById('main-site');
-    // Hide SIUUU screen
-    siuuScreen.style.display = 'none';
-    // Show video overlay with animation
-    videoOverlay.classList.add('active');
-    // Play video (with sound!)
-    const video = document.getElementById('cr7-video');
-    video.play().catch(e => {
-      console.warn("Audio autoplay blocked — user interaction required.");
-    });
-    // When first video ends, show second overlay
-video.addEventListener('ended', () => {
-  setTimeout(() => {
-    videoOverlay.classList.remove('active');
-    // Show second overlay after 1.5s delay
-    setTimeout(() => {
-      const videoOverlay2nd = document.getElementById('video-overlay-2nd');
-      const video2nd = document.getElementById('cr7-video-2nd');
-      videoOverlay2nd.classList.add('active');
-      // Play second video
-      video2nd.play().catch(e => console.warn("Autoplay blocked — user interaction required."));
-      // When second video ends, show main site
-      video2nd.addEventListener('ended', () => {
-        setTimeout(() => {
-          videoOverlay2nd.classList.remove('active');
-          mainSite.style.display = 'block';
-          setTimeout(() => {
-            mainSite.classList.add('fade-in');
-          }, 100);
-        }, 1000); // Pause before showing main site
-      });
-    }, 1500); // 1.5s gap between videos
-  }, 1000); // Wait 1s after first video ends before starting transition
-});
-    // Fallback if video hangs
-    setTimeout(() => {
-      if (!video.ended && !video.paused) {
-        video.pause();
-        videoOverlay.classList.remove('active');
-        mainSite.style.display = 'block';
-        mainSite.classList.add('fade-in');
+    function createLightFlare() {
+      const flare = document.createElement('div');
+      flare.classList.add('light-flare');
+      flare.style.left = `${Math.random() * 100}%`;
+      flare.style.top = `${Math.random() * 100}%`;
+      flare.style.animationDelay = `${Math.random() * 5}s`;
+      document.body.appendChild(flare);
+      setTimeout(() => flare.remove(), 12000);
+    }
+
+    function spawnParticleRandomly() {
+      createGoldenParticle()
+      setTimeout(spawnParticleRandomly, 200 + Math.random() * 600);
+    }
+
+    spawnParticleRandomly();
+    setInterval(createLightFlare, 4000);
+
+    window.addEventListener('load', () => {
+      for (let i = 0; i < 5; i++) {
+        createGoldenParticle();
+        if (i % 2 === 0) createLightFlare();
       }
-    }, 8000);
-  });
-
-// ===== UNIVERSAL 3D-TOUCH / PRESSURE SIMULATION =====
-function addInteractiveDepth(selector) {
-    const elements = document.querySelectorAll(selector);
-
-    elements.forEach(el => {
-        // Add a data attribute to prevent double-binding
-        if (el.dataset.interactive) return;
-        el.dataset.interactive = 'true';
-
-        // Initial state
-        el.style.transition = 'transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease, filter 0.2s ease';
-        el.style.transform = 'translateZ(0px)';
-        el.style.boxShadow = '';
-
-        // Pointer Enter (Hover or Touch Start)
-        el.addEventListener('pointerenter', (e) => {
-            // For mouse: gentle lift
-            // For touch: more pronounced effect
-            const liftAmount = e.pointerType === 'touch' ? '4px' : '2px';
-            const shadowIntensity = e.pointerType === 'touch' ? '0 8px 25px' : '0 4px 15px';
-
-            el.style.transform = `translateZ(${liftAmount}) scale(1.01)`;
-            el.style.boxShadow = `${shadowIntensity} rgba(212, 175, 55, 0.4)`;
-            // Optional: Add a very subtle brightness lift for "illuminated" feel
-            el.style.filter = 'brightness(1.05)';
-        });
-
-        // Pointer Leave (Hover or Touch End)
-        el.addEventListener('pointerleave', (e) => {
-            el.style.transform = 'translateZ(0px) scale(1)';
-            el.style.boxShadow = '';
-            el.style.filter = 'brightness(1)';
-        });
-
-        // For stronger "press" feedback on click/tap
-        el.addEventListener('pointerdown', (e) => {
-            el.style.transform = 'translateZ(0px) scale(0.98)';
-            el.style.transition = 'transform 0.05s cubic-bezier(0.34, 1.56, 0.64, 1)';
-        });
-
-        el.addEventListener('pointerup', (e) => {
-            el.style.transform = 'translateZ(4px) scale(1.01)';
-            el.style.transition = 'transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease';
-        });
     });
-}
 
-// Initialize 3D Touch after DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    // Apply to buttons, tabs, stat cards, goal items, quiz options, and more
-    addInteractiveDepth('.club-tab, .stat-card, .goal-item, .quiz-option, .skip-btn, .stat, .milestone-content, .mute-btn, .club-logo, #submit-quiz, #restart-quiz');
-});
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes floatUp {
+        0% { transform: translate(0, 0); opacity: 0.7; }
+        100% { transform: translate(-10px, -100px); opacity: 0; }
+      }
+    `;
+    document.head.appendChild(style);
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.section').forEach(el => {
+        observer.observe(el);
+      });
+
+      document.querySelectorAll('.roadmap-milestone').forEach(el => {
+        observer.observe(el);
+      });
+
+      const tabs = document.querySelectorAll('.club-tab');
+      const panels = document.querySelectorAll('.club-panel');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          panels.forEach(p => p.style.display = 'none');
+          tab.classList.add('active');
+          const club = tab.getAttribute('data-club');
+          document.querySelector(`.club-panel[data-club="${club}"]`).style.display = 'block';
+          if (club === 'quiz') {
+            resetQuiz();
+          }
+        });
+      });
+
+      document.querySelector('.club-tab[data-club="portugal"]').classList.add('active');
+      document.querySelector('.club-panel[data-club="portugal"]').style.display = 'block';
+    });
+
+    function resetQuiz() {
+      document.querySelectorAll('.quiz-option').forEach(btn => {
+        btn.classList.remove('correct', 'incorrect', 'selected');
+        btn.disabled = false;
+        btn.style.backgroundColor = '';
+      });
+      document.getElementById('quiz-result').style.display = 'none';
+      document.getElementById('submit-quiz').disabled = false;
+      document.getElementById('submit-quiz').textContent = 'Submit Answers';
+    }
+
+    document.addEventListener('click', (e) => {
+      const option = e.target.closest('.quiz-option');
+      if (!option) return;
+      const question = option.closest('.quiz-question');
+      const options = question.querySelectorAll('.quiz-option');
+      options.forEach(opt => opt.classList.remove('selected'));
+      option.classList.add('selected');
+    });
+
+    document.getElementById('submit-quiz').addEventListener('click', () => {
+      let score = 0;
+      const questions = document.querySelectorAll('.quiz-question');
+      questions.forEach(q => {
+        const selectedOption = q.querySelector('.quiz-option.selected');
+        if (selectedOption && selectedOption.getAttribute('data-correct') === 'true') {
+          score++;
+          selectedOption.classList.add('correct');
+        } else if (selectedOption) {
+          selectedOption.classList.add('incorrect');
+        }
+      });
+
+      document.querySelectorAll('.quiz-option').forEach(btn => {
+        btn.disabled = true;
+      });
+
+      const scoreDisplay = document.getElementById('score-display');
+      const rankMessage = document.getElementById('rank-message');
+      scoreDisplay.textContent = `${score}/5`;
+
+      if (score === 5) {
+        rankMessage.innerHTML = "👑 <span style='color:#f9e076;'>GOAT STATUS</span><br>You know CR7 better than his agent!";
+      } else if (score >= 3) {
+        rankMessage.innerHTML = "🌟 <span style='color:#f9e076;'>Elite Fan</span><br>Legend-level knowledge!";
+      } else if (score === 2) {
+        rankMessage.innerHTML = "⚽ <span style='color:#ccc;'>Passionate Supporter</span><br>Time to rewatch the highlights.";
+      } else {
+        rankMessage.innerHTML = "🤯 <span style='color:#e74c3c;'>Novice</span><br>Go watch ‘The Last Dance’... of CR7.";
+      }
+
+      document.getElementById('quiz-result').style.display = 'block';
+      document.getElementById('submit-quiz').disabled = true;
+      document.getElementById('submit-quiz').textContent = 'Quiz Completed!';
+    });
+
+    document.getElementById('restart-quiz').addEventListener('click', () => {
+      resetQuiz();
+    });
+
+    const goalVideos = document.querySelectorAll('.goal-video');
+    const muteButtons = document.querySelectorAll('.mute-btn');
+    let activeVideo = null;
+
+    function updateMuteButton(video, button) {
+      if (video.muted || video.volume === 0) {
+        button.innerHTML = `
+          <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11 5L6 9H11V15H6L11 19V5Z" fill="#f9e076"/>
+            <path d="M15.5 12C15.5 13.933 14.75 15.738 13.45 17.05L15.5 19.1V12Z" fill="#f9e076"/>
+            <path d="M19.8 16.2C20.6 15.1 21 13.7 21 12C21 10.3 20.6 8.9 19.8 7.8L17.5 10.1C18.1 11 18.5 12 18.5 13C18.5 14 18.1 15 17.5 15.9L19.8 16.2Z" fill="#f9e076"/>
+            <path d="M23 12C23 13.6569 22.3178 15.2072 21.1623 16.3623C20.0068 17.5174 18.4565 18.2 16.8 18.2C15.1435 18.2 13.5932 17.5174 12.4377 16.3623C11.2822 15.2072 10.6 13.6569 10.6 12C10.6 10.3431 11.2822 8.79277 12.4377 7.63725C13.5932 6.48174 15.1435 5.8 16.8 5.8C18.4565 5.8 20.0068 6.48174 21.1623 7.63725C22.3178 8.79277 23 10.3431 23 12Z" fill="#f9e076"/>
+            <path d="M17.5 10.1L15.5 12L17.5 13.9" stroke="#f9e076" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M15.5 12L17.5 10.1" stroke="#f9e076" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        `;
+        button.setAttribute('aria-label', 'Unmute audio');
+      } else {
+        button.innerHTML = `
+          <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11 5L6 9H11V15H6L11 19V5Z" fill="#f9e076"/>
+            <path d="M15.5 12C15.5 13.933 14.75 15.738 13.45 17.05L15.5 19.1V12Z" fill="#f9e076"/>
+            <path d="M19.8 16.2C20.6 15.1 21 13.7 21 12C21 10.3 20.6 8.9 19.8 7.8L17.5 10.1C18.1 11 18.5 12 18.5 13C18.5 14 18.1 15 17.5 15.9L19.8 16.2Z" fill="#f9e076"/>
+          </svg>
+        `;
+        button.setAttribute('aria-label', 'Mute audio');
+      }
+    }
+
+    muteButtons.forEach((button, index) => {
+      const video = goalVideos[index];
+      button.addEventListener('click', () => {
+        if (video.muted) {
+          video.muted = false;
+          video.play().catch(e => console.warn("Autoplay blocked — user interaction required."));
+        } else {
+          video.muted = true;
+        }
+        updateMuteButton(video, button);
+      });
+    });
+
+    goalVideos.forEach((video, index) => {
+      video.addEventListener('click', () => {
+        if (video.paused) {
+          goalVideos.forEach(v => {
+            if (v !== video) {
+              v.pause();
+              v.currentTime = 0;
+            }
+          });
+          video.play().catch(e => {
+            console.warn("Autoplay blocked — user interaction required.");
+          });
+          activeVideo = video;
+        } else {
+          video.pause();
+          activeVideo = null;
+        }
+        updateMuteButton(video, muteButtons[index]);
+      });
+    });
+
+    goalVideos.forEach((video, index) => {
+      updateMuteButton(video, muteButtons[index]);
+      setTimeout(() => {
+        updateMuteButton(video, muteButtons[index]);
+      }, 100);
+    });
+
+    document.getElementById('skip-first-video').addEventListener('click', function() {
+      const videoOverlay = document.getElementById('video-overlay');
+      const videoOverlay2nd = document.getElementById('video-overlay-2nd');
+      const mainSite = document.getElementById('main-site');
+      videoOverlay.classList.remove('active');
+      setTimeout(() => {
+        videoOverlay2nd.classList.add('active');
+        const video2nd = document.getElementById('cr7-video-2nd');
+        video2nd.play().catch(e => console.warn("Autoplay blocked — user interaction required."));
+        video2nd.addEventListener('ended', () => {
+          setTimeout(() => {
+            videoOverlay2nd.classList.remove('active');
+            mainSite.style.display = 'block';
+            setTimeout(() => {
+              mainSite.classList.add('fade-in');
+            }, 100);
+          }, 1000);
+        });
+      }, 500);
+    });
+
+    document.getElementById('skip-second-video').addEventListener('click', function() {
+      const videoOverlay2nd = document.getElementById('video-overlay-2nd');
+      const mainSite = document.getElementById('main-site');
+      videoOverlay2nd.classList.remove('active');
+      mainSite.style.display = 'block';
+      setTimeout(() => {
+        mainSite.classList.add('fade-in');
+      }, 100);
+    });
+
+    document.getElementById('skip-second-video').addEventListener('click', function() {
+      isOverlayActive = false;
+      for (let i = 0; i < 10; i++) {
+        setTimeout(createGoldenParticle, i * 100);
+      }
+    });
+
+    document.getElementById('cr7-video-2nd').addEventListener('ended', () => {
+      isOverlayActive = false;
+      for (let i = 0; i < 10; i++) {
+        setTimeout(createGoldenParticle, i * 100);
+      }
+    });
+
+    document.getElementById('siuu-screen').addEventListener('click', function() {
+      const siuuScreen = document.getElementById('siuu-screen');
+      const videoOverlay = document.getElementById('video-overlay');
+      const mainSite = document.getElementById('main-site');
+      siuuScreen.style.display = 'none';
+      videoOverlay.classList.add('active');
+      const video = document.getElementById('cr7-video');
+      video.play().catch(e => {
+        console.warn("Audio autoplay blocked — user interaction required.");
+      });
+      video.addEventListener('ended', () => {
+        setTimeout(() => {
+          videoOverlay.classList.remove('active');
+          setTimeout(() => {
+            const videoOverlay2nd = document.getElementById('video-overlay-2nd');
+            const video2nd = document.getElementById('cr7-video-2nd');
+            videoOverlay2nd.classList.add('active');
+            video2nd.play().catch(e => console.warn("Autoplay blocked — user interaction required."));
+            video2nd.addEventListener('ended', () => {
+              setTimeout(() => {
+                videoOverlay2nd.classList.remove('active');
+                mainSite.style.display = 'block';
+                setTimeout(() => {
+                  mainSite.classList.add('fade-in');
+                }, 100);
+              }, 1000);
+            });
+          }, 1500);
+        }, 1000);
+      });
+      setTimeout(() => {
+        if (!video.ended && !video.paused) {
+          video.pause();
+          videoOverlay.classList.remove('active');
+          mainSite.style.display = 'block';
+          mainSite.classList.add('fade-in');
+        }
+      }, 8000);
+    });
+
+    function addInteractiveDepth(selector) {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach(el => {
+            if (el.dataset.interactive) return;
+            el.dataset.interactive = 'true';
+            el.style.transition = 'transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease, filter 0.2s ease';
+            el.style.transform = 'translateZ(0px)';
+            el.style.boxShadow = '';
+            el.addEventListener('pointerenter', (e) => {
+                const liftAmount = e.pointerType === 'touch' ? '4px' : '2px';
+                const shadowIntensity = e.pointerType === 'touch' ? '0 8px 25px' : '0 4px 15px';
+                el.style.transform = `translateZ(${liftAmount}) scale(1.01)`;
+                el.style.boxShadow = `${shadowIntensity} rgba(212, 175, 55, 0.4)`;
+                el.style.filter = 'brightness(1.05)';
+            });
+            el.addEventListener('pointerleave', (e) => {
+                el.style.transform = 'translateZ(0px) scale(1)';
+                el.style.boxShadow = '';
+                el.style.filter = 'brightness(1)';
+            });
+            el.addEventListener('pointerdown', (e) => {
+                el.style.transform = 'translateZ(0px) scale(0.98)';
+                el.style.transition = 'transform 0.05s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            });
+            el.addEventListener('pointerup', (e) => {
+                el.style.transform = 'translateZ(4px) scale(1.01)';
+                el.style.transition = 'transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease';
+            });
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        addInteractiveDepth('.club-tab, .stat-card, .goal-item, .quiz-option, .skip-btn, .stat, .milestone-content, .mute-btn, .club-logo, #submit-quiz, #restart-quiz');
+    });
   </script>
+  <!-- ✅✅✅ END OF JAVASCRIPT ✅✅✅ -->
+
 </body>
 </html>
