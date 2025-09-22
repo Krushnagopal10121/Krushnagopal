@@ -763,23 +763,25 @@ body::after {
 }
 /* ===== NEW SKIP BUTTON STYLING ===== */
 .new-skip-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: linear-gradient(135deg, #d4af37, #f9e076);
-  color: #1a1a1a;
-  border: none;
-  border-radius: 30px;
-  padding: 12px 24px;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.3rem;
-  font-weight: 700;
-  cursor: pointer;
-  z-index: 10005;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  position: fixed !important; /* 👈 Anchored to viewport */
+  top: 20px !important;
+  right: 20px !important;
+  z-index: 99999 !important; /* 👈 Maximum priority */
+  background: linear-gradient(135deg, #d4af37, #f9e076) !important;
+  color: #1a1a1a !important;
+  border: none !important;
+  border-radius: 30px !important;
+  padding: 12px 24px !important;
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 1.3rem !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  /* TEMPORARY: Add a bright border to ensure it's visible */
+  outline: 3px solid red !important;
 }
 .new-skip-btn:hover {
   transform: translateY(-3px) scale(1.05);
@@ -1477,7 +1479,7 @@ body::after {
       <h2 class="section-title">The Numbers That Defy Reality</h2>
       <div class="stats-grid">
         <div class="stat-card">
-          <div class="stat-number">943</div>
+          <div class="stat-number">945</div>
           <div class="stat-label">Career Goals</div>
         </div>
         <div class="stat-card">
@@ -1762,50 +1764,52 @@ body::after {
       }, 100);
     });
 
-    document.getElementById('skip-first-video').addEventListener('click', function() {
-      const videoOverlay = document.getElementById('video-overlay');
-      const videoOverlay2nd = document.getElementById('video-overlay-2nd');
-      const mainSite = document.getElementById('main-site');
-      videoOverlay.classList.remove('active');
+// ===== SKIP BUTTON FUNCTIONALITY =====
+document.getElementById('skip-first-video').addEventListener('click', function() {
+  const videoOverlay = document.getElementById('video-overlay');
+  const videoOverlay2nd = document.getElementById('video-overlay-2nd');
+  const mainSite = document.getElementById('main-site');
+  const video = document.getElementById('cr7-video'); // Get the video element
+
+  // PAUSE THE FIRST VIDEO
+  video.pause();
+
+  // Hide first video overlay
+  videoOverlay.classList.remove('active');
+  // Show second video after a brief delay
+  setTimeout(() => {
+    videoOverlay2nd.classList.add('active');
+    const video2nd = document.getElementById('cr7-video-2nd');
+    video2nd.play().catch(e => console.warn("Autoplay blocked — user interaction required."));
+    // When second video ends, show main site
+    video2nd.addEventListener('ended', () => {
       setTimeout(() => {
-        videoOverlay2nd.classList.add('active');
-        const video2nd = document.getElementById('cr7-video-2nd');
-        video2nd.play().catch(e => console.warn("Autoplay blocked — user interaction required."));
-        video2nd.addEventListener('ended', () => {
-          setTimeout(() => {
-            videoOverlay2nd.classList.remove('active');
-            mainSite.style.display = 'block';
-            setTimeout(() => {
-              mainSite.classList.add('fade-in');
-            }, 100);
-          }, 1000);
-        });
-      }, 500);
+        videoOverlay2nd.classList.remove('active');
+        mainSite.style.display = 'block';
+        setTimeout(() => {
+          mainSite.classList.add('fade-in');
+        }, 100);
+      }, 1000);
     });
+  }, 500);
+});
 
-    document.getElementById('skip-second-video').addEventListener('click', function() {
-      const videoOverlay2nd = document.getElementById('video-overlay-2nd');
-      const mainSite = document.getElementById('main-site');
-      videoOverlay2nd.classList.remove('active');
-      mainSite.style.display = 'block';
-      setTimeout(() => {
-        mainSite.classList.add('fade-in');
-      }, 100);
-    });
+document.getElementById('skip-second-video').addEventListener('click', function() {
+  const videoOverlay2nd = document.getElementById('video-overlay-2nd');
+  const mainSite = document.getElementById('main-site');
+  const video2nd = document.getElementById('cr7-video-2nd'); // Get the video element
 
-    document.getElementById('skip-second-video').addEventListener('click', function() {
-      isOverlayActive = false;
-      for (let i = 0; i < 10; i++) {
-        setTimeout(createGoldenParticle, i * 100);
-      }
-    });
+  // PAUSE THE SECOND VIDEO
+  video2nd.pause();
 
-    document.getElementById('cr7-video-2nd').addEventListener('ended', () => {
-      isOverlayActive = false;
-      for (let i = 0; i < 10; i++) {
-        setTimeout(createGoldenParticle, i * 100);
-      }
-    });
+  // Hide second video overlay
+  videoOverlay2nd.classList.remove('active');
+  // Show main site immediately
+  mainSite.style.display = 'block';
+  setTimeout(() => {
+    mainSite.classList.add('fade-in');
+  }, 100);
+});
 
     document.getElementById('siuu-screen').addEventListener('click', function() {
       const siuuScreen = document.getElementById('siuu-screen');
